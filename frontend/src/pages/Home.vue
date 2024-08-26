@@ -76,14 +76,16 @@ body, html {
 
 h1 {
   font-size: 8em;
+  text-shadow: 2px 2px 4px 7px black;
 }
 
 h2 {
-  color: rgb(106, 106, 106);
+  color: rgb(125, 125, 125);
   font-size: 35px;
   margin: 0 auto;
   letter-spacing: 4px;
-
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-bottom: 30px;
 }
 
 h4 {
@@ -102,6 +104,8 @@ ul {
   list-style: none;
   margin: 0 auto;
   padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
 } 
 
 .skills {
@@ -110,17 +114,17 @@ ul {
   padding: 70px;
   align-items: center;
   border-radius: 40px;
-  max-width: 95%;
+  max-width: 98%;
   justify-content: center;
   margin: 0 auto;
   flex-wrap: wrap;
   align-items: center;
-  border: 20px solid white;
+  border: 2px solid rgb(201, 201, 201);
   box-sizing: border-box;
 }
 
 .programming-icon {
-  width: 90px;
+  width: 110px;
   height: auto;
   padding: 50px;
   align-items: center;
