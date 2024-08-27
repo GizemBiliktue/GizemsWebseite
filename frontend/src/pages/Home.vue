@@ -30,12 +30,12 @@ export default {
   <div class="home">
     <h1>Hello, I am Gizem! :)</h1>
     <h4>Frontend-Developer | UI/UX Designer | Web- and App-Developer</h4>
-    <div v-if="authStore.isAuthenticated">
+    <hr/>
+    <div class="login-logout" v-if="authStore.isAuthenticated">
       <p>Hi there {{ authStore.user?.username }}!</p>
       <p>You are logged in.</p>
-      <button @click="logout">Logout</button>
+      <button class="logout-btn" @click="logout">Logout</button>
     </div>
-    <hr/>
     <div class="skills">
       <h2>I've worked with</h2>
       <ul>
@@ -93,7 +93,8 @@ h4 {
 }
 
 hr {
-  width: 100%
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 ul {
@@ -131,4 +132,22 @@ ul {
   max-width: 100%;
 
 }
+
+.login-logout {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.342);
+  border-radius: 30px;
+  max-width: 35%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 40px
+}
+
+.home p {
+  font-size: 1.5em;
+}
+
 </style>

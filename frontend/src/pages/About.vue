@@ -26,6 +26,10 @@
 
 <style>
 
+body, html {
+  overflow-x: hidden;
+}
+
 .introduction {
     background-color: white;
     padding: 100px;
