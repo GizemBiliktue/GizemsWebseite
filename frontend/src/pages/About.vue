@@ -31,7 +31,7 @@
     padding: 100px;
     overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items:center;
 }
 
 .introduction p {
@@ -42,15 +42,16 @@
 
 .about-bild {
     flex-basis: 25%;
-    max-width: 20%;
+    width: 10em;
     float: right;
-
+    margin-right: 30px;
+    object-fit: cover;
 }
 
 .text-section {
     flex: 1;
-    margin-right: 300px;
-    margin-left: 12em;
+    margin-right: 100px;
+    margin-left: 4em;
     text-align: left;
 }
 
