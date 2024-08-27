@@ -1,6 +1,7 @@
 <template>
     <div class="register">
       <h2>Register</h2>
+      <p>Please register to see my website :)</p>
       <form @submit.prevent="register" >
         <div>
           <input v-model="email" id="email" type="email" placeholder="Email" required>
@@ -12,6 +13,7 @@
       </form>
       <p v-if="error">{{ error }}</p>
       <p v-if="success">{{ success }}</p>
+      <p>Already have an account? Then <router-link class="login-link" to="/login">login</router-link> :)</p>
     </div>
   </template>
   
@@ -66,7 +68,6 @@
     padding: 60px;
     padding-left: 110px;
     padding-right: 110px;
-    border-radius: 30px;
   }
 
 h2 {
@@ -76,4 +77,23 @@ h2 {
     text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.1);
 
   }
+
+.register p {
+  font-size: 1.5em;
+  margin-bottom: 50px;
+  text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.1);
+
+}
+
+.login-link{
+  color: rgb(113, 113, 113);
+  cursor: pointer;
+  background-color: rgb(239, 223, 202);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.login-link:hover{
+  color: rgb(162, 162, 162);
+}
 </style>

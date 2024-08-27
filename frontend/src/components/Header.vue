@@ -13,8 +13,6 @@
                         <li><router-link to="/">Home</router-link></li>
                         <li><router-link to="/projects">Projects</router-link></li>
                         <li><router-link to="/about">About me</router-link></li>
-                        <li><router-link to="/register">Register</router-link></li>
-                        <li><router-link to="/login">Login</router-link></li>
                     </div>
                     <li>
                         <a href="https://github.com/GizemBiliktue" target="_blank">

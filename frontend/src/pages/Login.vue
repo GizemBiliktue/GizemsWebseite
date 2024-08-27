@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-      <h1 class="login-title">Login</h1>
+      <h2 class="login-title">Login</h2>
       <form @submit.prevent="login">
         <div>
           <input v-model="email" id="email" type="text" placeholder="Email" required
@@ -13,6 +13,7 @@
         <button type="submit">Login</button>
       </form>
       <p v-if="error" class="error">{{ error }}</p>
+      <p>Doch kein Account? Dann <router-link class="register-link" to="/register">registriere dich!</router-link> :)</p>
     </div>
   </template>
   
@@ -53,16 +54,34 @@ import { useAuthStore } from '../store/auth'
     padding: 60px;
     padding-left: 110px;
     padding-right: 110px;
-    border-radius: 30px;
   }
 
-  .login-title {
+  h2 {
     font-size: 5em;
     margin-bottom: 80px;
     color: white;
     text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.1);
 
   }
+
+  .login p {
+  font-size: 1.5em;
+  margin-bottom: 50px;
+  text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.1);
+
+}
+
+.register-link{
+  color: rgb(228, 228, 228);
+  cursor: pointer;
+  background-color: rgb(210, 184, 151);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.register-link:hover{
+  color: rgb(255, 255, 255);
+}
 
   label {
     font-size: x-large;
