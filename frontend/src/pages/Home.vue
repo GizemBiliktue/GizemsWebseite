@@ -74,16 +74,11 @@ body, html {
   width: 100%;
 }
 
-h1 {
-  font-size: 8em;
-  text-shadow: 2px 2px 4px 7px black;
-}
-
-h2 {
-  color: rgb(125, 125, 125);
+.skills h2 {
+  color: rgb(157, 157, 157);
   font-size: 35px;
   margin: 0 auto;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding-bottom: 30px;
 }
@@ -91,6 +86,8 @@ h2 {
 h4 {
   font-size: 2em;
   color: white;
+  text-shadow: 0 2px 7px rgb(97, 97, 97);
+
 }
 
 hr {
@@ -113,8 +110,7 @@ ul {
   background-color: white;
   padding: 70px;
   align-items: center;
-  border-radius: 40px;
-  max-width: 98%;
+  max-width: 100%;
   justify-content: center;
   margin: 0 auto;
   flex-wrap: wrap;

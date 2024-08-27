@@ -26,8 +26,16 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 8em;
+  text-shadow: 0 2px 4px rgb(122, 122, 122);
+  color: white;
+
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background-color: white;
 }
 
 button {
