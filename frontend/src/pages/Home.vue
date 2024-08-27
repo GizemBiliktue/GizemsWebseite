@@ -81,12 +81,14 @@ body, html {
   letter-spacing: 2px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding-bottom: 30px;
+  text-shadow: 0px 5px 7px rgba(145, 145, 145, 0.2);
+
 }
 
 h4 {
   font-size: 2em;
   color: white;
-  text-shadow: 0 2px 7px rgb(97, 97, 97);
+  text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
 
 }
 

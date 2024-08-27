@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Times New Roman', Times, serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -27,9 +27,9 @@ body {
 
 h1 {
   font-size: 8em;
-  text-shadow: 0 2px 4px rgb(122, 122, 122);
+  text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
   color: white;
-
+  font-family: 'Times New Roman', Times, serif;
 }
 
 hr {

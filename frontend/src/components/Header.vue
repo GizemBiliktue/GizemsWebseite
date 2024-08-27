@@ -45,6 +45,7 @@ body, html {
 }
 
 header {
+    font-family: 'Times New Roman', Times, serif;
     position:fixed;
     background-color: rgb(224, 199, 170);
     color: white;
