@@ -59,6 +59,9 @@ export default {
         <li>
           <img src="../assets/python.svg" alt="python" class="programming-icon" />
         </li>
+        <li>
+          <img src="../assets/figma.svg" alt="figma" class="programming-icon" />
+        </li>
       </ul>
     </div>
   </div>
