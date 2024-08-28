@@ -1,31 +1,38 @@
 <template>
-    <div class="about">
-        <h1>About me</h1>
-        <hr/>
-        <div class="introduction">
-            <div class="text-section">
-                <h3>About me ^^</h3>
-                <p>Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik. 
-                    Gerade bin ich Praktikantin an dem <router-link class="youcan-link" to='https://youcan-app.de'>YouCan!</router-link> Unternehmen.</p>
-                <hr/>
-                <p>Ich zeichne, male und gesalte seit ich denken kann. Gleichzeitig habe ich großes Interesse an Technologie und daran etwas zu entwerfen oder zu kreieren.</p>
-                <p> Mit der Tätigkeit als Frontend-Developer ist mir beides möglich. </p>
-                <hr/>
-                <p> Alles was ich bis jetzt so programmiert oder gestaltet habe, findet ihr unter meinen Projekten und in meinem <router-link class="github-link" to="https://github.com/GizemBiliktue">Github</router-link> :)</p>
+    <Background :isReversed="false">
+        <div class="about">
+            <h1>About me</h1>
+            <hr/>
+            <div class="introduction">
+                <div class="text-section">
+                    <h3>About me ^^</h3>
+                    <p>Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik. 
+                        Gerade bin ich Praktikantin an dem <router-link class="youcan-link" to='https://youcan-app.de'>YouCan!</router-link> Unternehmen.</p>
+                    <hr/>
+                    <p>Ich zeichne, male und gesalte seit ich denken kann. Gleichzeitig habe ich großes Interesse an Technologie und daran etwas zu entwerfen oder zu kreieren.</p>
+                    <p> Mit der Tätigkeit als Frontend-Developer ist mir beides möglich. </p>
+                    <hr/>
+                    <p> Alles was ich bis jetzt so programmiert oder gestaltet habe, findet ihr unter meinen Projekten und in meinem <router-link class="github-link" to="https://github.com/GizemBiliktue">Github</router-link> :)</p>
+                </div>
+                <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
             </div>
-            <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
+            <div class="randomfacts">
+                <h3>Random Facts</h3>
+                <p>Ich esse gerne Süßes</p>
+                <p>Habe drei Jahre Klavier gespielt (Habe es mittlerweile bestimmt verlernt)</p>
+                <p>Sprachen lernen macht süchtig</p>
+                <p>Bin ein Bookjunkie und habe allein in 2024 15 Bücher gelesen - noch!!</p>
+            </div>
         </div>
-        <div class="randomfacts">
-            <h3>Random Facts</h3>
-            <p>Ich esse gerne Süßes</p>
-            <p>Habe drei Jahre Klavier gespielt (Habe es mittlerweile bestimmt verlernt)</p>
-            <p>Sprachen lernen macht süchtig</p>
-            <p>Bin ein Bookjunkie und habe allein in 2024 15 Bücher gelesen - noch!!</p>
-        </div>
-    </div>
+    </Background>
 </template>
 
-<style>
+<script setup>
+import Background from '../components/Background.vue';
+
+</script>
+
+<style scoped>
 
 body, html {
   overflow-x: hidden;

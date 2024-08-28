@@ -1,10 +1,16 @@
 <template>
-    <div class="projects">
-        <h1>Projects</h1>
-        <hr/>
-    </div>
+    <Background :isReversed="true">
+        <div class="projects">
+            <h1>Projects</h1>
+            <hr/>
+        </div>
+    </Background>
 </template>
 
-<style>
+<script setup>
+import Background from '../components/Background.vue';
 
+</script>
+
+<style scoped>
 </style>

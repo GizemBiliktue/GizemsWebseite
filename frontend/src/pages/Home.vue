@@ -1,70 +1,67 @@
-<script>
+<script setup>
 import { useAuthStore } from '../store/auth.js'
 import { useRouter } from 'vue-router'
+import Background from '../components/Background.vue'
+import {onMounted} from 'vue'
 
-export default {
-  setup() {
-    const authStore = useAuthStore()
-    const router = useRouter()
+  const authStore = useAuthStore()
+  const router = useRouter()
 
-    return {
-      authStore, router
-    }
-  },
-  methods: {
-    async logout() {
+  const logout = async () => {
       try {
-        await this.authStore.logout(this.$router)
+        await authStore.logout(router)
       } catch (error) {
         console.error(error)
       }
-    }
-  },
-  async mounted() {
-    await this.authStore.fetchUser()
   }
-}
+
+  onMounted(async () => {
+    await this.authStore.fetchUser()
+  }) 
+
 </script>
 
 <template>
-  <div class="home">
-    <h1>Hello, I am Gizem! :)</h1>
-    <h4>Frontend-Developer | UI/UX Designer | Web- and App-Developer</h4>
-    <hr/>
-    <div class="login-logout" v-if="authStore.isAuthenticated">
-      <p>Hi there {{ authStore.user?.username }}!</p>
-      <p>You are logged in.</p>
-      <button class="logout-btn" @click="logout">Logout</button>
+  <Background :isReversed="false">
+    <div class="home">
+      <h1>Hello, I am Gizem! :)</h1>
+      <h4>Frontend-Developer | UI/UX Designer | Web- and App-Developer</h4>
+      <hr/>
+      <div class="login-logout" v-if="authStore.isAuthenticated">
+        <p>Hi there {{ authStore.user?.username }}!</p>
+        <p>You are logged in.</p>
+        <button class="logout-btn" @click="logout">Logout</button>
+      </div>
+      <div class="skills">
+        <h2>I've worked with</h2>
+        <ul>
+          <li>
+            <img src="../assets/html.svg" alt="html" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/css.svg" alt="css" class="programming-icon" />
+          </li><li>
+            <img src="../assets/java.svg" alt="java" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/javascript.svg" alt="javascript" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/react.svg" alt="react" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/vue.svg" alt="vue" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/python.svg" alt="python" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/figma.svg" alt="figma" class="programming-icon" />
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="skills">
-      <h2>I've worked with</h2>
-      <ul>
-        <li>
-          <img src="../assets/html.svg" alt="html" class="programming-icon" />
-        </li>
-        <li>
-          <img src="../assets/css.svg" alt="css" class="programming-icon" />
-        </li><li>
-          <img src="../assets/java.svg" alt="java" class="programming-icon" />
-        </li>
-        <li>
-          <img src="../assets/javascript.svg" alt="javascript" class="programming-icon" />
-        </li>
-        <li>
-          <img src="../assets/react.svg" alt="react" class="programming-icon" />
-        </li>
-        <li>
-          <img src="../assets/vue.svg" alt="vue" class="programming-icon" />
-        </li>
-        <li>
-          <img src="../assets/python.svg" alt="python" class="programming-icon" />
-        </li>
-        <li>
-          <img src="../assets/figma.svg" alt="figma" class="programming-icon" />
-        </li>
-      </ul>
-    </div>
-  </div>
+  </Background>
 </template>
 
 <style scoped>
