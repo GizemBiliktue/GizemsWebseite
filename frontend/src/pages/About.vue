@@ -5,12 +5,13 @@
         <div class="introduction">
             <div class="text-section">
                 <h3>About me ^^</h3>
-                <p>Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik. Gerade bin ich Praktikantin an dem YouCan! Unternehmen. </p>
+                <p>Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik. 
+                    Gerade bin ich Praktikantin an dem <router-link class="youcan-link" to='https://youcan-app.de'>YouCan!</router-link> Unternehmen.</p>
                 <hr/>
                 <p>Ich zeichne, male und gesalte seit ich denken kann. Gleichzeitig habe ich großes Interesse an Technologie und daran etwas zu entwerfen oder zu kreieren.</p>
                 <p> Mit der Tätigkeit als Frontend-Developer ist mir beides möglich. </p>
                 <hr/>
-                <p> Alles was ich bis jetzt so programmiert oder gestaltet habe, findet ihr unter meinen Projekten und in meinem Gituhb :)</p>
+                <p> Alles was ich bis jetzt so programmiert oder gestaltet habe, findet ihr unter meinen Projekten und in meinem <router-link class="github-link" to="https://github.com/GizemBiliktue">Github</router-link> :)</p>
             </div>
             <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
         </div>
@@ -28,6 +29,22 @@
 
 body, html {
   overflow-x: hidden;
+}
+
+.youcan-link {
+    color: rgb(131, 123, 108);
+}
+
+.youcan-link:hover {
+    color: rgb(65, 116, 129);
+}
+
+.github-link {
+    color: rgb(131, 123, 108);
+}
+
+.github-link:hover {
+    color: rgb(66, 63, 63);
 }
 
 .introduction {
