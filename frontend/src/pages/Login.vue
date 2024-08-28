@@ -72,7 +72,7 @@ import { useAuthStore } from '../store/auth'
 }
 
 .register-link{
-  color: rgb(228, 228, 228);
+  color: rgb(235, 235, 235);
   cursor: pointer;
   background-color: rgb(210, 184, 151);
   padding: 5px;

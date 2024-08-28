@@ -17,49 +17,49 @@
     </div>
   </template>
   
-  <script>
-  import { getCSRFToken } from '../store/auth'
-  
-  export default {
-    data() {
-      return {
-        email: '',
-        password: '',
-        error: '',
-        success: ''
-      }
-    },
-    methods: {
-      async register() {
-        try {
-          const response = await fetch('http://localhost:8000/api/register', {
-            method: 'POST',
-            headers: {
-                      'Content-Type': 'application/json',
-                      'X-CSRFToken': getCSRFToken()
-                  },
-            body: JSON.stringify({
-              email: this.email,
-              password: this.password
-            }),
-            credentials: 'include'
-          })
-          const data = await response.json()
-          if (response.ok) {
-            this.success = 'Registration successful! Please log in.'
-            setTimeout(() => {
-              this.$router.push('/login')
-            }, 1000)
-          } else {
-            this.error = data.error || 'Registration failed'
-          }
-        } catch (err) {
-          this.error = 'An error occurred during registration: ' + err
+<script>
+import { getCSRFToken } from '../store/auth'
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      error: '',
+      success: ''
+    }
+  },
+  methods: {
+    async register() {
+      try {
+        const response = await fetch('http://localhost:8000/api/register', {
+          method: 'POST',
+          headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken()
+                },
+          body: JSON.stringify({
+            email: this.email,
+            password: this.password
+          }),
+          credentials: 'include'
+        })
+        const data = await response.json()
+        if (response.ok) {
+          this.success = 'Registration successful! Please log in.'
+          setTimeout(() => {
+            this.$router.push('/login')
+          }, 1000)
+        } else {
+          this.error = data.error || 'Registration failed'
         }
+      } catch (err) {
+        this.error = 'An error occurred during registration: ' + err
       }
     }
   }
-  </script>
+}
+</script>
   
 
 <style scoped>
