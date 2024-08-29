@@ -1,4 +1,5 @@
 <template>
+  <Background :isReversed="false">
     <div class="login">
       <h2 class="login-title">Login</h2>
       <form @submit.prevent="login">
@@ -15,37 +16,35 @@
       <p v-if="error" class="error">{{ error }}</p>
       <p>Doch kein Account? Dann <router-link class="register-link" to="/register">registriere dich!</router-link> :)</p>
     </div>
+  </Background>
   </template>
   
-<script>
+<script setup>
 import { useAuthStore } from '../store/auth'
-  
-  export default {
-    setup() {
-      const authStore = useAuthStore()
-      return {
-        authStore
-      }
-    },
-    data() {
-      return {
-        email: "",
-        password: "",
-        error: ""
-      }
-    },
-    methods: {
-      async login(){
-        await this.authStore.login(this.email, this.password, this.$router)
-        if (!this.authStore.isAuthenticated){
-          this.error = 'Login failed. Please check your credentials.'
-        }
-      },
-      resetError(){
-        this.error = ""
-      }
-    }
+import Background from '../components/Background.vue';
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+
+const authStore = useAuthStore()
+const router = useRouter()
+
+
+const email = ref()
+const password = ref()
+const error = ref()
+
+const login = async () => {
+  await authStore.login(email.value, password.value, router)
+  if (!authStore.isAuthenticated){
+    error.value = 'Login failed. Please check your credentials.'
   }
+}
+      
+const resetError = () => {
+  error.value = ""
+}
+  
 </script>
 
 <style>
@@ -54,6 +53,7 @@ import { useAuthStore } from '../store/auth'
     padding: 60px;
     padding-left: 110px;
     padding-right: 110px;
+    margin-top: 250px;
   }
 
   h2 {

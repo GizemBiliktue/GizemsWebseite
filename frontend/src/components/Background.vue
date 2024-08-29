@@ -22,7 +22,7 @@ export default {
     display: flex;
     flex-direction: column;
     z-index: 1;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
 }
 
 .background::before {

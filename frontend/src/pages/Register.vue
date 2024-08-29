@@ -1,62 +1,62 @@
 <template>
-    <div class="register">
-      <h2>Register</h2>
-      <p>Please register to see my website :)</p>
-      <form @submit.prevent="register" >
-        <div>
-          <input v-model="email" id="email" type="email" placeholder="Email" required>
-        </div>
-        <div>
-          <input v-model="password" id="password" type="password" placeholder="Password" required>
-        </div>
-        <button type="submit">Register</button>
-      </form>
-      <p v-if="error">{{ error }}</p>
-      <p v-if="success">{{ success }}</p>
-      <p>Already have an account? Then <router-link class="login-link" to="/login">login</router-link> :)</p>
-    </div>
+  <Background :isReversed="false">
+      <div class="register">
+        <h2>Register</h2>
+        <p>Please register to see my website :)</p>
+        <form @submit.prevent="register" >
+          <div>
+            <input v-model="email" id="email" type="email" placeholder="Email" required>
+          </div>
+          <div>
+            <input v-model="password" id="password" type="password" placeholder="Password" required>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+        <p v-if="error">{{ error }}</p>
+        <p v-if="success">{{ success }}</p>
+        <p>Already have an account? Then <router-link class="login-link" to="/login">login</router-link> :)</p>
+      </div>
+    </Background>
   </template>
   
-<script>
+<script setup>
 import { getCSRFToken } from '../store/auth'
+import Background from '../components/Background.vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-export default {
-  data() {
-    return {
-      email: '',
-      password: '',
-      error: '',
-      success: ''
+
+const email = ref('')
+const password = ref('')
+const error = ref('')
+const success = ref('')
+const router = useRouter()
+
+const register = async () => {
+  try {
+    const response = await fetch('http://localhost:8000/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCSRFToken()
+      },
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value
+      }),
+      credentials: 'include'
+    })
+    const data = await response.json()
+    if (response.ok) {
+      success.value = 'Registration successful! Please log in.'
+      setTimeout(() => {
+        router.push('/login')
+      }, 1000)
+    } else {
+      error.value = data.error || 'Registration failed'
     }
-  },
-  methods: {
-    async register() {
-      try {
-        const response = await fetch('http://localhost:8000/api/register', {
-          method: 'POST',
-          headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCSRFToken()
-                },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password
-          }),
-          credentials: 'include'
-        })
-        const data = await response.json()
-        if (response.ok) {
-          this.success = 'Registration successful! Please log in.'
-          setTimeout(() => {
-            this.$router.push('/login')
-          }, 1000)
-        } else {
-          this.error = data.error || 'Registration failed'
-        }
-      } catch (err) {
-        this.error = 'An error occurred during registration: ' + err
-      }
-    }
+  } catch (err) {
+    error.value = 'An error occurred during registration: ' + err
   }
 }
 </script>
@@ -68,6 +68,8 @@ export default {
     padding: 60px;
     padding-left: 110px;
     padding-right: 110px;
+    margin-top: 250px;
+
   }
 
 h2 {

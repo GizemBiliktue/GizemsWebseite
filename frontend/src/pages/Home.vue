@@ -16,7 +16,7 @@ import {onMounted} from 'vue'
   }
 
   onMounted(async () => {
-    await this.authStore.fetchUser()
+    await authStore.fetchUser()
   }) 
 
 </script>
