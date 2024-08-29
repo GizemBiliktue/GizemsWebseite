@@ -11,22 +11,29 @@ import AuthLayout from './components/AuthLayout.vue'
 const routes = [
     {
         path: '/',
+        redirect: '/login',
+    },
+    {
+        path: '/',
         component: AppLayout,
         children: [
         {
-            path:'',
+            path:'home',
             name: 'home',
-            component: Home
+            component: Home,
+            meta: { requiresAuth: true }
         },
         {
             path: '/about',
             name: 'about',
-            component: About
+            component: About,
+            meta: { requiresAuth: true }
         },
         {
             path: '/projects',
             name: 'projects',
-            component: Projects
+            component: Projects,
+            meta: { requiresAuth: true }
         },
         ]
     }, {
@@ -59,8 +66,10 @@ router.beforeEach(async(to, from, next) => {
         await authStore.fetchUser();
     }
 
-    if(to.meta.requiresAuth && !authStore.isAuthenticated) {
-        next({name: 'login'});
+    if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+        next({ name: 'login' });
+    } else if ((to.name === 'login' || to.name === 'register') && authStore.isAuthenticated) {
+        next({ name: 'home' });
     } else {
         next();
     }
