@@ -1,20 +1,21 @@
 <template>
   <Background :isReversed="false">
     <div class="login">
-      <h2 class="login-title">Login</h2>
+      <LanguageSwitcher/>
+      <h2 class="login-title">{{ $t('login.title') }}</h2>
       <form @submit.prevent="login">
         <div>
-          <input v-model="email" id="email" type="text" placeholder="Email" required
+          <input v-model="email" id="email" type="text" :placeholder="$t('login.email')" required
                 @input="resetError">
         </div>
         <div>
-          <input v-model="password" id="password" type="password" placeholder="Password" required
+          <input v-model="password" id="password" type="password" :placeholder="$t('login.password')" required
                 @input="resetError">
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">{{ $t('login.submit') }}</button>
       </form>
-      <p v-if="error" class="error">{{ error }}</p>
-      <p>Doch kein Account? Dann <router-link class="register-link" to="/register">registriere dich!</router-link> :)</p>
+      <p v-if="error" class="error">{{ $t('login.error') }}</p>
+      <p>{{ $t('login.noAccount') }}<router-link class="register-link" to="/register">{{ $t('login.register') }}</router-link> :)</p>
     </div>
   </Background>
   </template>
@@ -24,7 +25,7 @@ import { useAuthStore } from '../store/auth'
 import Background from '../components/Background.vue';
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-
+import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 
 const authStore = useAuthStore()
 const router = useRouter()

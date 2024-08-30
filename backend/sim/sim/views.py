@@ -66,3 +66,5 @@ def register(request):
         errors = form.errors.as_json()
         return JsonResponse({'error': errors}, status=400)
 
+def post_list(request):
+    return render(request, 'sim/post_list.html', {})

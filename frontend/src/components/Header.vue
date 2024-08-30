@@ -10,9 +10,9 @@
             <nav>
                 <ul>
                     <div class="li-text">
-                        <li><router-link to="/">Home</router-link></li>
-                        <li><router-link to="/projects">Projects</router-link></li>
-                        <li><router-link to="/about">About me</router-link></li>
+                        <li><router-link to="/">{{$t('header.home')}}</router-link></li>
+                        <li><router-link to="/projects">{{$t('header.projects')}}</router-link></li>
+                        <li><router-link to="/about">{{$t('header.about')}}</router-link></li>
                     </div>
                     <li>
                         <a href="https://github.com/GizemBiliktue" target="_blank">
@@ -24,6 +24,9 @@
                             <img src="../assets/linkedin.svg" alt="LinkedIn"  class="social-icon"/>
                         </a>
                     </li>
+                    <li>
+                        <LanguageSwitcher/>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -31,6 +34,8 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 
 </script>
 
@@ -147,5 +152,20 @@ main {
 .social-icon:hover {
     filter: invert(72%) sepia(68%) saturate(553%) hue-rotate(357deg) brightness(97%) contrast(92%);
     opacity: 0.7;
+}
+
+.language-switcher {
+    margin-left: 2em;
+    background-color: rgb(224, 199, 170);
+    color: white;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.language-switcher:hover {
+    background-color: rgb(214, 168, 88);
 }
 </style>

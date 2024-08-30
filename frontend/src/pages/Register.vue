@@ -1,20 +1,21 @@
 <template>
   <Background :isReversed="false">
       <div class="register">
-        <h2>Register</h2>
-        <p>Please register to see my website :)</p>
+        <LanguageSwitcher/>
+        <h2>{{$t('register.title')}}</h2>
+        <p>{{$t('register.text')}}</p>
         <form @submit.prevent="register" >
           <div>
-            <input v-model="email" id="email" type="email" placeholder="Email" required>
+            <input v-model="email" id="email" type="email" :placeholder="$t('register.email')" required>
           </div>
           <div>
-            <input v-model="password" id="password" type="password" placeholder="Password" required>
+            <input v-model="password" id="password" type="password" :placeholder="$t('register.password')" required>
           </div>
-          <button type="submit">Register</button>
+          <button type="submit">{{$t('register.submit')}}</button>
         </form>
-        <p v-if="error">{{ error }}</p>
-        <p v-if="success">{{ success }}</p>
-        <p>Already have an account? Then <router-link class="login-link" to="/login">login</router-link> :)</p>
+        <p v-if="error">{{$t('register.error')}}</p>
+        <p v-if="success">{{$t('register.success')}}</p>
+        <p>{{$t('register.login')}}<router-link class="login-link" to="/login">login</router-link> :)</p>
       </div>
     </Background>
   </template>
@@ -24,6 +25,7 @@ import { getCSRFToken } from '../store/auth'
 import Background from '../components/Background.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 
 
 const email = ref('')

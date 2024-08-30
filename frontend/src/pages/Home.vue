@@ -3,6 +3,8 @@ import { useAuthStore } from '../store/auth.js'
 import { useRouter } from 'vue-router'
 import Background from '../components/Background.vue'
 import {onMounted} from 'vue'
+import LanguageSwitcher from '../components/LanguageSwitcher.vue'
+
 
   const authStore = useAuthStore()
   const router = useRouter()
@@ -24,16 +26,16 @@ import {onMounted} from 'vue'
 <template>
   <Background :isReversed="false">
     <div class="home">
-      <h1>Hello, I am Gizem! :)</h1>
-      <h4>Frontend-Developer | UI/UX Designer | Web- and App-Developer</h4>
+      <h1>{{ $t('home.title') }}</h1>
+      <h4>{{ $t('home.position1') }}<span class="divider">|</span>{{ $t('home.position2') }}<span class="divider">|</span>{{ $t('home.position3') }}</h4>
       <hr/>
       <div class="login-logout" v-if="authStore.isAuthenticated">
-        <p>Hi there {{ authStore.user?.username }}!</p>
-        <p>You are logged in.</p>
-        <button class="logout-btn" @click="logout">Logout</button>
+        <p>{{ $t('home.loginMsg1') }} {{ authStore.user?.username }}{{ $t('home.loginMsg2') }}</p>
+        <p>{{ $t('home.loginMsg3') }}</p>
+        <button class="logout-btn" @click="logout">{{ $t('home.logoutBtn') }}</button>
       </div>
       <div class="skills">
-        <h2>I've worked with</h2>
+        <h2>{{ $t('home.skillText') }}</h2>
         <ul>
           <li>
             <img src="../assets/html.svg" alt="html" class="programming-icon" />
@@ -69,6 +71,9 @@ body, html {
   overflow-x: hidden;
 }
 
+.divider {
+  padding: 15px;
+}
 .home {
   box-sizing: border-box;
   width: 100%;
