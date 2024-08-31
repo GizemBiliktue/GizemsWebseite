@@ -156,16 +156,11 @@ main {
 
 .language-switcher {
     margin-left: 2em;
-    background-color: rgb(224, 199, 170);
     color: white;
     border: none;
     font-size: large;
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
-}
-
-.language-switcher:hover {
-    background-color: rgb(214, 168, 88);
 }
 </style>

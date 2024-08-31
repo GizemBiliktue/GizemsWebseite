@@ -1,29 +1,52 @@
 <template>
-    <select v-model="$i18n.locale" class="language-switcher">
-      <option value="en">English</option>
-      <option value="de">Deutsch</option>
-    </select>
+    <div class="language-switcher">
+        <img 
+        src="../assets/england.svg" 
+        alt="English" 
+        v-if="$i18n.locale === 'en'" 
+        @click="changeLanguage('de')" 
+        class="flag-icon"
+        />
+        <img 
+        src="../assets/germany.svg" 
+        alt="Deutsch" 
+        v-if="$i18n.locale === 'de'" 
+        @click="changeLanguage('en')" 
+        class="flag-icon"
+        />
+    </div>
   </template>
   
   <script>
   export default {
-    name: 'LanguageSwitcher'
+    name: 'LanguageSwitcher',
+    methods: {
+        changeLanguage(lang) {
+            this.$i18n.locale = lang;
+    }
+  }
   }
   </script>
   
   <style scoped>
   .language-switcher {
-    background-color: rgb(224, 199, 170);
-    color: white;
-    border: none;
-    font-size: large;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    padding: 5px;
-    border-radius: 5px;
-  }
+    margin-right: 50px;
+}
   
-  .language-switcher:hover {
-    background-color: rgb(214, 168, 88);
-  }
-  </style>
+  .flag-icon {
+    width: 35px; 
+    height: 35px;
+    margin-left: 10px;
+    transition: transform 0.3s;
+
+}
+
+.flag-icon:hover {
+    transform: scale(1.1); 
+}
+
+</style>
   
