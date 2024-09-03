@@ -18,20 +18,21 @@
             </div>
                 <div class="little-Facts">
                     <div class="facts">
-                        <h3>{{$t('about.bioTitle')}}</h3>
-                        <hr class="facts-linie">
-                        <p>{{$t('about.bioText1')}}</p>
-                        <p>{{$t('about.bioText2')}}</p>
-                        <p>{{$t('about.bioText3')}}</p>
-                        <p>{{$t('about.bioText4')}}</p>
-                    </div>
-                    <div class="facts">
                         <h3>{{$t('about.hobbyTitle')}}</h3>
                         <hr class="facts-linie">
                         <p><i class="fas fa-book-open-reader"></i>{{$t('about.hobbyText1')}}</p>
                         <p><i class="fas fa-palette"></i>{{$t('about.hobbyText2')}}</p>
                         <p><i class="fas fa-bicycle"></i>{{$t('about.hobbyText3')}}</p>
                         <p><i class="fas fa-bread-slice"></i>{{$t('about.hobbyText4')}}</p>
+                        <p><i class="fas fa-heart"></i>{{$t('about.hobbyText5')}}</p>
+                    </div>
+                    <div class="bio-facts">
+                        <h3>{{$t('about.bioTitle')}}</h3>
+                        <hr class="facts-linie">
+                        <p>{{$t('about.bioText1')}}</p>
+                        <p>{{$t('about.bioText2')}}</p>
+                        <p>{{$t('about.bioText3')}}</p>
+                        <p>{{$t('about.bioText4')}}</p>
                     </div>
                     <div class="facts">
                         <h3>{{$t('about.randomfactsTitle')}}</h3>
@@ -86,8 +87,28 @@ function plusSlides(n) {
     showSlides(slideIndex.value += n);
 }
 
+function handleIntersection(entries, observer) {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('hop-animation');
+                observer.unobserve(entry.target); 
+            }, index * 300);
+        }
+    });
+}
+
 onMounted(() => {
     showSlides(slideIndex.value);
+
+    const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.8
+    });
+
+    const factBoxes = document.querySelectorAll('.facts, .bio-facts');
+    factBoxes.forEach(box => {
+        observer.observe(box);
+    });
 });
 </script>
 
@@ -165,7 +186,7 @@ onMounted(() => {
 }
 
 .facts {
-    background-color: transparent;
+    background-color: rgba(180, 163, 141, 0.225);
     align-items: center;
     margin-left: 30px;
     margin-top: 50px;
@@ -194,6 +215,40 @@ onMounted(() => {
 }
 
 .facts p i {
+    margin-right: 10px; 
+    color: white; 
+    font-size: 1.2em; 
+}
+
+.bio-facts {
+    background-color: rgba(255, 255, 255, 0.174);
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 50px;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    max-width: 800px;
+
+}
+.bio-facts h3{
+    color: white;
+    font-size: 3em;
+}
+
+.bio-facts p{
+    color: white;
+    font-size: 1.5em;
+    text-align: left; 
+    max-width: 550px; 
+    margin: 30px; 
+    margin-left: 90px;
+    align-items: center;
+}
+
+.bio-facts p i {
     margin-right: 10px; 
     color: white; 
     font-size: 1.2em; 
@@ -292,5 +347,17 @@ onMounted(() => {
     margin-bottom: 30px;
 
 }
+
+@keyframes hop {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-30px); }
+    60% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+.hop-animation {
+    animation: hop 1.6s ease-in-out;
+}
+
 
 </style>

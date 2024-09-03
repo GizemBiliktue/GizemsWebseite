@@ -10,9 +10,9 @@
 
 <style scoped>
  footer {
-    position: fixed;
     bottom: 0;
     left: 0;
+    padding: 10px;
     width: 100%;
     background-color: rgb(194, 164, 119);
     color: white;
