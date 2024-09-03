@@ -16,9 +16,8 @@
     width: 100%;
     background-color: rgb(194, 164, 119);
     color: white;
-    padding: 6px 0;
     box-sizing: border-box;
     z-index: 1000;
-    font-size: 20px;
+    font-size: 17px;
  }
 </style>

@@ -16,15 +16,34 @@
                 </div>
                 <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
             </div>
-            <div class="randomfacts">
-                <h3>{{$t('about.randomfactsTitle')}}</h3>
-                <hr class="randomfacts-linie">
-                <p><i class="fas fa-candy-cane"></i>{{$t('about.randomfactsText1')}}</p>
-                <p><i class="fas fa-music"></i>{{$t('about.randomfactsText2')}}</p>
-                <p><i class="fas fa-language"></i>{{$t('about.randomfactsText3')}}</p>
-                <p><i class="fas fa-book"></i>{{$t('about.randomfactsText4')}}</p>
-            </div>
-            <div class="slideshow-container">
+                <div class="little-Facts">
+                    <div class="facts">
+                        <h3>{{$t('about.bioTitle')}}</h3>
+                        <hr class="facts-linie">
+                        <p>{{$t('about.bioText1')}}</p>
+                        <p>{{$t('about.bioText2')}}</p>
+                        <p>{{$t('about.bioText3')}}</p>
+                        <p>{{$t('about.bioText4')}}</p>
+                    </div>
+                    <div class="facts">
+                        <h3>{{$t('about.hobbyTitle')}}</h3>
+                        <hr class="facts-linie">
+                        <p><i class="fas fa-book-open-reader"></i>{{$t('about.hobbyText1')}}</p>
+                        <p><i class="fas fa-palette"></i>{{$t('about.hobbyText2')}}</p>
+                        <p><i class="fas fa-bicycle"></i>{{$t('about.hobbyText3')}}</p>
+                        <p><i class="fas fa-bread-slice"></i>{{$t('about.hobbyText4')}}</p>
+                    </div>
+                    <div class="facts">
+                        <h3>{{$t('about.randomfactsTitle')}}</h3>
+                        <hr class="facts-linie">
+                        <p><i class="fas fa-candy-cane"></i>{{$t('about.randomfactsText1')}}</p>
+                        <p><i class="fas fa-music"></i>{{$t('about.randomfactsText2')}}</p>
+                        <p><i class="fas fa-language"></i>{{$t('about.randomfactsText3')}}</p>
+                        <p><i class="fas fa-book"></i>{{$t('about.randomfactsText4')}}</p>
+                    </div>
+                </div>
+            <div class="bildergalerie">
+                <div class="slideshow-container">
                 <div class="slides fade">
                     <img src="/landscape/tempelhof.jpg" style="width:100%">
                     <div class="caption">{{$t('about.imgTempelhof')}}</div>
@@ -40,6 +59,7 @@
 
                 <a class="prev" @click="plusSlides(-1)">&#10094;</a>
                 <a class="next" @click="plusSlides(1)">&#10095;</a>
+            </div>
             </div>
         </div>
     </Background>
@@ -83,7 +103,7 @@ onMounted(() => {
     margin-bottom: 30px;
 }
 
-.randomfacts-linie {
+.facts-linie {
     background-color: rgb(255, 255, 255);
     border: none;
     height: 2.5px;
@@ -114,6 +134,7 @@ onMounted(() => {
     overflow: hidden;
     display: flex;
     align-items:center;
+    flex-wrap: wrap;
 }
 
 .introduction p {
@@ -126,14 +147,14 @@ onMounted(() => {
     flex-basis: 25%;
     width: 10em;
     float: right;
-    margin-right: 30px;
+    margin-right: 11em;
     object-fit: cover;
 }
 
 .text-section {
     flex: 1;
-    margin-right: 100px;
-    margin-left: 4em;
+    margin-right: 15em;
+    margin-left: 15em;
     text-align: left;
 }
 
@@ -143,25 +164,26 @@ onMounted(() => {
     flex-basis: 70%;
 }
 
-.randomfacts {
+.facts {
     background-color: transparent;
     align-items: center;
     margin-left: 30px;
     margin-top: 50px;
     border-radius: 30px;
     padding: 10px;
-    box-shadow: 3px 3px 10px rgb(44, 44, 44);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
     padding-bottom: 30px;
     margin-bottom: 30px;
     max-width: 700px;
+
 }
 
-.randomfacts h3{
+.facts h3{
     color: white;
     font-size: 3em;
 }
 
-.randomfacts p{
+.facts p{
     color: white;
     font-size: 1.5em;
     text-align: left; 
@@ -171,10 +193,17 @@ onMounted(() => {
     align-items: center;
 }
 
-.randomfacts p i {
+.facts p i {
     margin-right: 10px; 
     color: white; 
     font-size: 1.2em; 
+}
+
+.bildergalerie {
+    background-color: rgba(216, 208, 193, 0.73);
+    padding: 5em;
+    padding-right: 1em;
+    padding-left: 1em;
 }
 
 .slideshow-container {
@@ -191,13 +220,13 @@ onMounted(() => {
 }
 
 .slides {
-    display: none;
-
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .fade {
     animation-name: fade;
-    animation-duration: 2.5s;
+    animation-duration: 2.0s;
 
 }
 
@@ -237,18 +266,30 @@ onMounted(() => {
 
 .caption {
     position: absolute;
-    bottom: 7px; 
+    bottom: 6.7px; 
     background-color: rgba(255, 255, 255, 0.731); 
-    width: 354px;
+    width: 500px;
     color: rgb(13, 62, 66);
     padding: 10px 20px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
     border-radius: 10px; 
     opacity: 0.9; 
     border-top-right-radius: 30px;
-    border-bottom-right-radius: 12px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
     border-bottom-left-radius: 40px;
+
+}
+
+.little-Facts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    flex-wrap: wrap; 
+    margin-top: 20px;
+    margin-bottom: 30px;
 
 }
 
