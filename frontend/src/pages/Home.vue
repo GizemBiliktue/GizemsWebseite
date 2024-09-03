@@ -38,27 +38,27 @@ import LanguageSwitcher from '../components/LanguageSwitcher.vue'
         <h2>{{ $t('home.skillText') }}</h2>
         <ul>
           <li>
-            <img src="../assets/html.svg" alt="html" class="programming-icon" />
+            <img src="../assets/ikons/html.svg" alt="html" class="programming-icon" />
           </li>
           <li>
-            <img src="../assets/css.svg" alt="css" class="programming-icon" />
+            <img src="../assets/ikons/css.svg" alt="css" class="programming-icon" />
           </li><li>
-            <img src="../assets/java.svg" alt="java" class="programming-icon" />
+            <img src="../assets/ikons/java.svg" alt="java" class="programming-icon" />
           </li>
           <li>
-            <img src="../assets/javascript.svg" alt="javascript" class="programming-icon" />
+            <img src="../assets/ikons/javascript.svg" alt="javascript" class="programming-icon" />
           </li>
           <li>
-            <img src="../assets/react.svg" alt="react" class="programming-icon" />
+            <img src="../assets/ikons/react.svg" alt="react" class="programming-icon" />
           </li>
           <li>
-            <img src="../assets/vue.svg" alt="vue" class="programming-icon" />
+            <img src="../assets/ikons/vue.svg" alt="vue" class="programming-icon" />
           </li>
           <li>
-            <img src="../assets/python.svg" alt="python" class="programming-icon" />
+            <img src="../assets/ikons/python.svg" alt="python" class="programming-icon" />
           </li>
           <li>
-            <img src="../assets/figma.svg" alt="figma" class="programming-icon" />
+            <img src="../assets/ikons/figma.svg" alt="figma" class="programming-icon" />
           </li>
         </ul>
       </div>

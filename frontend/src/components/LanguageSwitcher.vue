@@ -1,14 +1,14 @@
 <template>
     <div class="language-switcher">
         <img 
-        src="../assets/england.svg" 
+        src="../assets/countries/england.svg" 
         alt="English" 
         v-if="$i18n.locale === 'en'" 
         @click="changeLanguage('de')" 
         class="flag-icon"
         />
         <img 
-        src="../assets/germany.svg" 
+        src="../assets/countries/germany.svg" 
         alt="Deutsch" 
         v-if="$i18n.locale === 'de'" 
         @click="changeLanguage('en')" 

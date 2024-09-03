@@ -16,12 +16,12 @@
                     </div>
                     <li>
                         <a href="https://github.com/GizemBiliktue" target="_blank">
-                        <img src="../assets/github.svg" alt="GitHub" class="social-icon" />
+                        <img src="../assets/ikons/github.svg" alt="GitHub" class="social-icon" />
                         </a>
                     </li>
                     <li>
                         <a href="https://www.linkedin.com/in/gizem-biliktü-48073b262/" target="_blank">
-                            <img src="../assets/linkedin.svg" alt="LinkedIn"  class="social-icon"/>
+                            <img src="../assets/ikons/linkedin.svg" alt="LinkedIn"  class="social-icon"/>
                         </a>
                     </li>
                     <li>

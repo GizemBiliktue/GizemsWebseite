@@ -43,7 +43,7 @@ const messages = {
     about: {
         title: 'About me',
         textTitle: 'About me ^^',
-        text1: 'I am Gizem, a current student at the University of Applied Sciences for Business and Technology. I am currently an intern at ',
+        text1: 'I am Gizem, a current student at the University of Applied Sciences for Business and Technology located in Berlin, Germany. I am currently an intern at ',
         youcan: 'YouCan!.',
         text2: 'I have been drawing, painting, and designing for as long as I can remember. At the same time, I have a strong interest in technology and creating or designing things.',
         text3: ' As a Frontend Developer, I can combine both passions.',
@@ -53,7 +53,10 @@ const messages = {
         randomfactsText1: 'I love eating sweets',
         randomfactsText2: 'I played the piano for three years (I’ve probably forgotten it by now)',
         randomfactsText3: 'Learning languages is addictive',
-        randomfactsText4: 'I’m a book junkie and have already read 15 books in 2024 - so far!!',
+        randomfactsText4: 'I’m a book junkie and have already read 15 books in 2024 - yet!!',
+        imgTempelhof: 'Tempelhof, Berlin: famous for its grilling',
+        imgBritzergarten: 'Britzer Garten, Berlin: just one out of many seas there',
+        imgSee: 'Duisburg, Nordrhein-Westfalen',
   },
   },
 
@@ -98,7 +101,7 @@ const messages = {
     about: {
       title: 'Über mich',
       textTitle: 'Über mich ^^',
-      text1: 'Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik. Gerade bin ich Praktikantin an dem ',
+      text1: 'Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik Berlin, Deutschland. Gerade bin ich Praktikantin an dem ',
       youcan: 'YouCan!',
       text2: 'Ich zeichne, male und gesalte seit ich denken kann. Gleichzeitig habe ich großes Interesse an Technologie und daran etwas zu entwerfen oder zu kreieren.',
       text3: 'Mit der Tätigkeit als Frontend-Developer ist mir beides möglich. ',
@@ -109,7 +112,10 @@ const messages = {
       randomfactsText2: 'Habe drei Jahre Klavier gespielt (Habe es mittlerweile bestimmt verlernt)',
       randomfactsText3: 'Sprachen lernen macht süchtig',
       randomfactsText4: 'Bin ein Bookjunkie und habe allein in 2024 15 Bücher gelesen - noch!!',
-  },
+      imgTempelhof: 'Tempelhof, Berlin: Beliebt fürs Grillen',
+      imgBritzergarten: 'Britzer Garten, Berlin: nur einer von vielen Seen dort',
+      imgSee: 'Duisburg, Nordrhein-Westfalen',
+    },
   }
 }
 
