@@ -45,22 +45,25 @@
                 </div>
             <div class="bildergalerie">
                 <div class="slideshow-container">
-                <div class="slides fade">
-                    <img src="/landscape/tempelhof.jpg" style="width:100%">
-                    <div class="caption">{{$t('about.imgTempelhof')}}</div>
+                    <div class="slides fade">
+                        <img src="/landscape/tempelhof.jpg" style="width:100%">
+                        <div class="caption">{{$t('about.imgTempelhof')}}</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="/landscape/britzergarten.png" style="width:100%">
+                        <div class="caption">{{$t('about.imgBritzergarten')}}.</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="/landscape/see.png" style="width:100%">
+                        <div class="caption">{{$t('about.imgSee')}}</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="/landscape/see.png" style="width:100%">
+                        <div class="caption">{{$t('about.imgSee')}}</div>
+                    </div>
+                    <a class="prev" @click="plusSlides(-1)">&#10094;</a>
+                    <a class="next" @click="plusSlides(1)">&#10095;</a>
                 </div>
-                <div class="slides fade">
-                    <img src="/landscape/britzergarten.png" style="width:100%">
-                    <div class="caption">{{$t('about.imgBritzergarten')}}.</div>
-                </div>
-                <div class="slides fade">
-                    <img src="/landscape/see.png" style="width:100%">
-                    <div class="caption">{{$t('about.imgSee')}}</div>
-                </div>
-
-                <a class="prev" @click="plusSlides(-1)">&#10094;</a>
-                <a class="next" @click="plusSlides(1)">&#10095;</a>
-            </div>
             </div>
         </div>
     </Background>
@@ -186,7 +189,7 @@ onMounted(() => {
 }
 
 .facts {
-    background-color: rgba(180, 163, 141, 0.225);
+    background-color: rgba(180, 163, 141, 0.256);
     align-items: center;
     margin-left: 30px;
     margin-top: 50px;
