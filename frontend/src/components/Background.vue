@@ -23,6 +23,7 @@ export default {
     flex-direction: column;
     z-index: 1;
     padding-bottom: 80px;
+    overflow: hidden;
 }
 
 .background::before {
@@ -36,7 +37,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    filter: blur(10px);
+    filter: blur(20px);
     z-index: -1;
   }
 

@@ -1,27 +1,26 @@
 <template>
     <Background :isReversed="false">
         <div class="about">
-            <h1>About me</h1>
+            <h1>{{$t('about.title')}}</h1>
             <hr/>
             <div class="introduction">
                 <div class="text-section">
-                    <h3>About me ^^</h3>
-                    <p>Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik. 
-                        Gerade bin ich Praktikantin an dem <router-link class="youcan-link" to='https://youcan-app.de'>YouCan!</router-link> Unternehmen.</p>
+                    <h3>{{$t('about.textTitle')}}</h3>
+                    <p>{{$t('about.text1')}} <router-link class="youcan-link" to='https://youcan-app.de'>{{$t('about.youcan')}}</router-link></p>
                     <hr/>
-                    <p>Ich zeichne, male und gesalte seit ich denken kann. Gleichzeitig habe ich großes Interesse an Technologie und daran etwas zu entwerfen oder zu kreieren.</p>
-                    <p> Mit der Tätigkeit als Frontend-Developer ist mir beides möglich. </p>
+                    <p>{{$t('about.text2')}}</p>
+                    <p>{{$t('about.text3')}}</p>
                     <hr/>
-                    <p> Alles was ich bis jetzt so programmiert oder gestaltet habe, findet ihr unter meinen Projekten und in meinem <router-link class="github-link" to="https://github.com/GizemBiliktue">Github</router-link> :)</p>
+                    <p>{{$t('about.text4')}}<router-link class="github-link" to="https://github.com/GizemBiliktue">{{$t('about.github')}}</router-link></p>
                 </div>
                 <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
             </div>
             <div class="randomfacts">
-                <h3>Random Facts</h3>
-                <p>Ich esse gerne Süßes</p>
-                <p>Habe drei Jahre Klavier gespielt (Habe es mittlerweile bestimmt verlernt)</p>
-                <p>Sprachen lernen macht süchtig</p>
-                <p>Bin ein Bookjunkie und habe allein in 2024 15 Bücher gelesen - noch!!</p>
+                <h3>{{$t('about.randomfactsTitle')}}</h3>
+                <p>{{$t('about.randomfactsText1')}}</p>
+                <p>{{$t('about.randomfactsText2')}}</p>
+                <p>{{$t('about.randomfactsText3')}}</p>
+                <p>{{$t('about.randomfactsText4')}}</p>
             </div>
         </div>
     </Background>
@@ -29,13 +28,13 @@
 
 <script setup>
 import Background from '../components/Background.vue';
+import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 
 </script>
 
 <style scoped>
 
 body, html {
-  overflow-x: hidden;
 }
 
 .youcan-link {
@@ -97,7 +96,8 @@ body, html {
     border-radius: 30px;
     padding: 10px;
     box-shadow: 3px 3px 10px rgb(44, 44, 44);
-
+    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .randomfacts h3{
