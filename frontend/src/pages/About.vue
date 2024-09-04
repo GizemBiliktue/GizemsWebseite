@@ -16,53 +16,56 @@
                 </div>
                 <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
             </div>
-                <div class="little-Facts">
-                    <div class="facts">
-                        <h3>{{$t('about.hobbyTitle')}}</h3>
-                        <hr class="facts-linie">
-                        <p><i class="fas fa-book-open-reader"></i>{{$t('about.hobbyText1')}}</p>
-                        <p><i class="fas fa-palette"></i>{{$t('about.hobbyText2')}}</p>
-                        <p><i class="fas fa-bicycle"></i>{{$t('about.hobbyText3')}}</p>
-                        <p><i class="fas fa-bread-slice"></i>{{$t('about.hobbyText4')}}</p>
-                        <p><i class="fas fa-heart"></i>{{$t('about.hobbyText5')}}</p>
-                    </div>
-                    <div class="bio-facts">
-                        <h3>{{$t('about.bioTitle')}}</h3>
-                        <hr class="facts-linie">
-                        <p>{{$t('about.bioText1')}}</p>
-                        <p>{{$t('about.bioText2')}}</p>
-                        <p>{{$t('about.bioText3')}}</p>
-                        <p>{{$t('about.bioText4')}}</p>
-                    </div>
-                    <div class="facts">
-                        <h3>{{$t('about.randomfactsTitle')}}</h3>
-                        <hr class="facts-linie">
-                        <p><i class="fas fa-candy-cane"></i>{{$t('about.randomfactsText1')}}</p>
-                        <p><i class="fas fa-music"></i>{{$t('about.randomfactsText2')}}</p>
-                        <p><i class="fas fa-language"></i>{{$t('about.randomfactsText3')}}</p>
-                        <p><i class="fas fa-book"></i>{{$t('about.randomfactsText4')}}</p>
-                    </div>
+
+            <div class="little-Facts">
+                <div class="facts">
+                    <h3>{{$t('about.hobbyTitle')}}</h3>
+                    <hr class="facts-linie">
+                    <p><i class="fas fa-book-open-reader"></i>{{$t('about.hobbyText1')}}</p>
+                    <p><i class="fas fa-palette"></i>{{$t('about.hobbyText2')}}</p>
+                    <p><i class="fas fa-bicycle"></i>{{$t('about.hobbyText3')}}</p>
+                    <p><i class="fas fa-bread-slice"></i>{{$t('about.hobbyText4')}}</p>
+                    <p><i class="fas fa-heart"></i>{{$t('about.hobbyText5')}}</p>
                 </div>
-            <div class="bildergalerie">
+                <div class="bio-facts">
+                    <h3>{{$t('about.bioTitle')}}</h3>
+                    <hr class="facts-linie">
+                    <p>{{$t('about.bioText1')}}</p>
+                    <p>{{$t('about.bioText2')}}</p>
+                    <p>{{$t('about.bioText3')}}</p>
+                    <p>{{$t('about.bioText4')}}</p>
+                </div>
+                <div class="facts">
+                    <h3>{{$t('about.randomfactsTitle')}}</h3>
+                    <hr class="facts-linie">
+                    <p><i class="fas fa-candy-cane"></i>{{$t('about.randomfactsText1')}}</p>
+                    <p><i class="fas fa-music"></i>{{$t('about.randomfactsText2')}}</p>
+                    <p><i class="fas fa-language"></i>{{$t('about.randomfactsText3')}}</p>
+                    <p><i class="fas fa-book"></i>{{$t('about.randomfactsText4')}}</p>
+                </div>
+            </div>
+
+            <div class="image-gallery-container">
+                <div class="vertical-gallery">
                 <div class="slideshow-container">
-                    <div class="slides fade">
-                        <img src="/landscape/tempelhof.jpg" style="width:100%">
-                        <div class="caption">{{$t('about.imgTempelhof')}}</div>
+                    <div class="slides-vertical fade" v-for="(image, index) in verticalImages" :key="index">
+                    <img :src="image.src" :alt="image.alt" class="vertical-image" />
+                    <div class="caption">{{ $t(`about.captions.vertical.${index}`) }}</div>
                     </div>
-                    <div class="slides fade">
-                        <img src="/landscape/britzergarten.png" style="width:100%">
-                        <div class="caption">{{$t('about.imgBritzergarten')}}.</div>
+                    <a class="prev" @click="changeSlide(-1, 'vertical')">&#10094;</a>
+                    <a class="next" @click="changeSlide(1, 'vertical')">&#10095;</a>
+                </div>
+                </div>
+
+                <div class="horizontal-gallery">
+                <div class="slideshow-container">
+                    <div class="slides-horizontal fade" v-for="(image, index) in horizontalImages" :key="index">
+                    <img :src="image.src" :alt="image.alt" class="horizontal-image" />
+                    <div class="caption">{{ $t(`about.captions.horizontal.${index}`) }}</div>
                     </div>
-                    <div class="slides fade">
-                        <img src="/landscape/see.png" style="width:100%">
-                        <div class="caption">{{$t('about.imgSee')}}</div>
-                    </div>
-                    <div class="slides fade">
-                        <img src="/landscape/see.png" style="width:100%">
-                        <div class="caption">{{$t('about.imgSee')}}</div>
-                    </div>
-                    <a class="prev" @click="plusSlides(-1)">&#10094;</a>
-                    <a class="next" @click="plusSlides(1)">&#10095;</a>
+                    <a class="prev" @click="changeSlide(-1, 'horizontal')">&#10094;</a>
+                    <a class="next" @click="changeSlide(1, 'horizontal')">&#10095;</a>
+                </div>
                 </div>
             </div>
         </div>
@@ -74,20 +77,60 @@ import Background from '../components/Background.vue';
 import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 import { ref, onMounted } from 'vue';
 
-let slideIndex = ref(1);
+const verticalImages = ref([
+    { src: '/landscape/antik.png', alt: 'Antik'},
+    { src: '/landscape/dunkelblau.png', alt: 'Dunkelblau'},
+    { src: '/landscape/burgWasser.png', alt: 'Burgwasser'},
+    { src: '/landscape/giresun.png', alt: 'Giresun'},
+    { src: '/landscape/landschaft.png', alt: 'Landschaft'},
+    { src: '/landscape/marienburg.png', alt: 'Marienburg'},
+    { src: '/landscape/pinkerSchloss.png', alt: 'PinkerSchloss'},
+    { src: '/landscape/weisesGebaude.png', alt: 'WeisesGebaude'},
+    { src: '/landscape/meer.png', alt: 'Meer'}
 
-function showSlides(n) {
-    let slides = document.getElementsByClassName("slides");
-    if (n > slides.length) {slideIndex.value = 1}
-    if (n < 1) {slideIndex.value = slides.length}
+]);
+
+const horizontalImages = ref([
+    { src: '/landscape/britzergarten.png', alt: 'Britzergarten'},
+    { src: '/landscape/see.png', alt: 'See'},
+    { src: '/landscape/tempelhof.jpg', alt: 'Tempelhof'},
+    { src: '/landscape/mariendorf.jpg', alt: 'Mariendorf'},
+    { src: '/landscape/zweiGebauden.png', alt: 'ZweiGebauden'}
+
+]);
+
+const slideIndexVertical = ref(1);
+const slideIndexHorizontal = ref(1);
+
+function showSlides(n, gallery) {
+    let slides;
+    if (gallery === 'vertical') {
+        slides = document.getElementsByClassName("slides-vertical");
+        if (n > slides.length) { slideIndexVertical.value = 1; }
+        if (n < 1) { slideIndexVertical.value = slides.length; }
+    } else {
+        slides = document.getElementsByClassName("slides-horizontal");
+        if (n > slides.length) { slideIndexHorizontal.value = 1; }
+        if (n < 1) { slideIndexHorizontal.value = slides.length; }
+    }
+
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    slides[slideIndex.value-1].style.display = "block";
+
+    if (gallery === 'vertical') {
+        slides[slideIndexVertical.value - 1].style.display = "block";
+    } else {
+        slides[slideIndexHorizontal.value - 1].style.display = "block";
+    }
 }
 
-function plusSlides(n) {
-    showSlides(slideIndex.value += n);
+function changeSlide(n, gallery) {
+    if (gallery === 'vertical') {
+        showSlides(slideIndexVertical.value += n, 'vertical');
+    } else {
+        showSlides(slideIndexHorizontal.value += n, 'horizontal');
+    }
 }
 
 function handleIntersection(entries, observer) {
@@ -102,7 +145,8 @@ function handleIntersection(entries, observer) {
 }
 
 onMounted(() => {
-    showSlides(slideIndex.value);
+    showSlides(slideIndexVertical.value, 'vertical');
+    showSlides(slideIndexHorizontal.value, 'horizontal');
 
     const observer = new IntersectionObserver(handleIntersection, {
         threshold: 0.8
@@ -257,76 +301,59 @@ onMounted(() => {
     font-size: 1.2em; 
 }
 
-.bildergalerie {
-    background-color: rgba(216, 208, 193, 0.73);
-    padding: 5em;
-    padding-right: 1em;
-    padding-left: 1em;
+.image-gallery-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 50px;
+    background-color: rgba(255, 247, 232, 0.731);
+    padding: 11em;
+}
+
+.vertical-gallery,
+.horizontal-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .slideshow-container {
     position: relative;
-    max-width: 85%;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
 }
 
 .slideshow-container img {
-    max-height: 65em;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.vertical-image {
+    width: 700px;
+    height: 850px;
+    object-fit: cover;
+}
+
+.image-gallery-container img {
     border-radius: 40px;
-}
-
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 2.0s;
 
 }
 
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
+.horizontal-image {
+    width: 1150px;
+    height: 850px;
+    object-fit: cover;
+
 }
 
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: rgba(255, 255, 255, 0.681);
-    font-weight: bold;
-    font-size: 38px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    transform: translateY(-50%); 
-    opacity: 0.9; 
-}
-
-.prev {
-    left: 10px; 
-}
-
-.next {
-    right: 10px; 
-}
-
-.prev:hover, .next:hover {
-    transform: translateY(-45%) scale(1.5);
-}
 
 .caption {
     position: absolute;
     bottom: 6.7px; 
     background-color: rgba(255, 255, 255, 0.731); 
-    width: 500px;
+    width: auto;
+    max-width: 400px;
     color: rgb(13, 62, 66);
     padding: 10px 20px;
     text-align: center;
@@ -337,6 +364,42 @@ onMounted(() => {
     border-bottom-right-radius: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 40px;
+    word-wrap: break-word; 
+    white-space: normal;
+}
+
+
+/* Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: rgba(255, 255, 255, 0.703);
+    font-weight: bold;
+    font-size: 45px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transform: translateY(-50%);
+    opacity: 0.9;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    opacity: 1.9;
+    transform: translateY(-40%);
+    scale: 120%;
+    color: rgb(255, 255, 255);
 
 }
 

@@ -54,9 +54,6 @@ const messages = {
         randomfactsText2: 'I played the piano for three years (I’ve probably forgotten it by now)',
         randomfactsText3: 'Learning languages is addictive',
         randomfactsText4: 'I’m a book junkie and have already read 15 books in 2024 - yet!!',
-        imgTempelhof: 'Tempelhof, Berlin: famous for its grilling',
-        imgBritzergarten: 'Britzer Garten, Berlin: just one out of many seas there',
-        imgSee: 'Duisburg, Nordrhein-Westfalen',
         hobbyTitle: 'Hobbies',
         hobbyText1: 'I love reading',
         hobbyText2: 'drawing and painting',
@@ -67,7 +64,28 @@ const messages = {
         bioText1: 'I was born, raised and went to school in Berlin (Germany)',
         bioText2: 'My parents are both from Türkiye',
         bioText3: 'My surname comes from Kyrgyzstan and means: intelligent',
-        bioText4: 'I am studying Applied Computing for my Bachelors'
+        bioText4: 'I am studying Applied Computing for my Bachelors',
+
+        captions: {
+          vertical: [
+            "Antike Landschaft",
+            "Dunkelblaues Thema",
+            "Burg am Wasser",
+            "Blick auf Giresun",
+            "Schöne Landschaft",
+            "Marienburg Schloss",
+            "Rosa Schloss",
+            "Weißes Gebäude",
+            "Meeresblick",
+          ],
+          horizontal: [
+            "Britzer Garten, Berlin: just one out of many seas there",
+            "Duisburg, Nordrhein-Westfalen",
+            "Flughafen Tempelhof, Berlin: famous for its grilling",
+            "Mariendorf Landschaft",
+            "Zwei Gebäude",
+          ],
+        }
   },
   },
 
@@ -123,9 +141,6 @@ const messages = {
       randomfactsText2: 'Habe drei Jahre Klavier gespielt (Habe es mittlerweile bestimmt verlernt)',
       randomfactsText3: 'Sprachen lernen macht süchtig',
       randomfactsText4: 'Bin ein Bookjunkie und habe allein in 2024, 15 Bücher gelesen - noch!!',
-      imgTempelhof: 'Tempelhof, Berlin: Beliebt fürs Grillen',
-      imgBritzergarten: 'Britzer Garten, Berlin: nur einer von vielen Seen dort',
-      imgSee: 'Duisburg, Nordrhein-Westfalen',
       hobbyTitle: 'Hobbies',
       hobbyText1: 'Ich liebe es zu lesen',
       hobbyText2: 'Zeichnen und Malen',
@@ -136,7 +151,28 @@ const messages = {
       bioText1: 'Ich bin in Berlin (Deutschland) geboren, aufgewachsen und in die Schule gegangen',
       bioText2: 'Meine Eltern kommen beide aus der Türkei',
       bioText3: 'Mein Nachname kommt aus Kirgistan und bedeutet: intelligent',
-      bioText4: 'Ich studiere Angewandte Informatik im Bachelor'
+      bioText4: 'Ich studiere Angewandte Informatik im Bachelor',
+
+      captions: {
+        vertical: [
+          "Antike Landschaft",
+          "Dunkelblaues Thema",
+          "Burg am Wasser",
+          "Blick auf Giresun",
+          "Schöne Landschaft",
+          "Marienburg Schloss",
+          "Rosa Schloss",
+          "Weißes Gebäude",
+          "Meeresblick",
+        ],
+        horizontal: [
+          "Britzer Garten, Berlin: nur einer von vielen Seen dort",
+          "Duisburg, Nordrhein-Westfalen",
+          "Flughafen Tempelhof, Berlin: Beliebt fürs Grillen",
+          "Mariendorf Landschaft",
+          "Zwei Gebäude",
+        ],
+      }
     },
   }
 }
