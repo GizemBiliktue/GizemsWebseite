@@ -5,6 +5,7 @@ import Background from '../components/Background.vue'
 import {onMounted} from 'vue'
 import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 import { useHopAnimation } from '../utils/useHopAnimation.js';
+import Chatbot from '../components/Chatbot.vue';
 
 
   const authStore = useAuthStore()
@@ -65,6 +66,8 @@ import { useHopAnimation } from '../utils/useHopAnimation.js';
           </li>
         </ul>
       </div>
+
+      <Chatbot/>
     </div>
   </Background>
 </template>
