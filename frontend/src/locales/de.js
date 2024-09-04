@@ -1,0 +1,85 @@
+export default {
+    login: {
+      title: 'Anmelden',
+      email: 'E-Mail',
+      password: 'Passwort',
+      submit: 'Anmelden',
+      error: 'Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.',
+      noAccount: 'Noch kein Konto? Dann',
+      register: 'hier registrieren! :)',
+    },
+    header: {
+      home: 'Startseite',
+      projects: 'Projekte',
+      about: 'Über mich',
+    },
+    projects: {
+      title: 'Meine Projekte'
+    },
+    register: {
+      title: 'Registrieren',
+      text: 'Registriere dich bitte hier, um meine Webseite zu sehen :)',
+      error: 'Registrierung fehlgeschlagen',
+      success: 'Registrierung erfolgreich! Bitte melde dich an.',
+      email: 'E-Mail',
+      password: 'Passwort',
+      submit: 'registrieren',
+      login: 'Du hast schon ein Konto? Dann '
+    },
+    home: {
+      title: 'Hallo, Ich bin Gizem :)',
+      position: 'Frontend-Developer | UI/UX Designer | Web- and App-Developer',
+      loginMsg1: 'Hallihallo ',
+      loginMsg2: '!',
+      loginMsg3: 'Du bist angemeldet.',
+      logoutBtn: 'Abmelden',   
+      skillText: 'Ich habe gearbeitet mit',
+    },
+    about: {
+      title: 'Über mich',
+      textTitle: 'Über mich ^^',
+      text1: 'Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik Berlin, Deutschland. Gerade bin ich Praktikantin an dem ',
+      youcan: 'YouCan!',
+      text2: 'Ich zeichne, male und gesalte seit ich denken kann. Gleichzeitig habe ich großes Interesse an Technologie und daran etwas zu entwerfen oder zu kreieren.',
+      text3: 'Mit der Tätigkeit als Frontend-Developer ist mir beides möglich. ',
+      text4: ' Alles was ich bis jetzt so programmiert oder gestaltet habe, findet ihr unter meinen Projekten und in meinem ',
+      github: 'Github',
+      randomfactsTitle: 'Random Fakten',
+      randomfactsText1: 'Ich esse gerne Süßes (insbesondere Schokolade)',
+      randomfactsText2: 'Habe drei Jahre Klavier gespielt (Habe es mittlerweile bestimmt verlernt)',
+      randomfactsText3: 'Sprachen lernen macht süchtig',
+      randomfactsText4: 'Bin ein Bookjunkie und habe allein in 2024, 15 Bücher gelesen - noch!!',
+      hobbyTitle: 'Hobbies',
+      hobbyText1: 'Ich liebe es zu lesen',
+      hobbyText2: 'Zeichnen und Malen',
+      hobbyText3: 'Fahrradfahren gibt mir ein Gefühl von Freiheit',
+      hobbyText4: 'Bananenbrot (oder auch anderes) backen',
+      hobbyText5: 'Zeit mit Familie und Freunde verbringen',
+      bioTitle: 'Biographie',
+      bioText1: 'Ich bin in Berlin (Deutschland) geboren, aufgewachsen und in die Schule gegangen',
+      bioText2: 'Meine Eltern kommen beide aus der Türkei',
+      bioText3: 'Mein Nachname kommt aus Kirgistan und bedeutet: intelligent',
+      bioText4: 'Ich studiere Angewandte Informatik im Bachelor',
+      captions: {
+        vertical: [
+          "Antike Landschaft",
+          "Dunkelblaues Thema",
+          "Burg am Wasser",
+          "Blick auf Giresun",
+          "Schöne Landschaft",
+          "Marienburg Schloss",
+          "Rosa Schloss",
+          "Weißes Gebäude",
+          "Meeresblick",
+        ],
+        horizontal: [
+          "Britzer Garten, Berlin: nur einer von vielen Seen dort",
+          "Duisburg, Nordrhein-Westfalen",
+          "Flughafen Tempelhof, Berlin: Beliebt fürs Grillen",
+          "Mariendorf Landschaft",
+          "Zwei Gebäude",
+        ],
+      }
+    }
+  }
+  

@@ -1,0 +1,87 @@
+export default {
+    login: {
+      title: 'Login',
+      email: 'E-Mail',
+      password: 'Password',
+      submit: 'Login',
+      error: 'Login failed. Please check your credentials.',
+      noAccount: 'No account yet? Then',
+      register: 'register here!',
+    },
+    header: {
+      home: 'Homepage',
+      projects: 'Projects',
+      about: 'About me',
+    },
+    projects: {
+      title: 'My Projects'
+    },
+    register: {
+      title: 'Register',
+      text: 'Please register to see my website :)',
+      error: 'Registration failed',
+      success: 'Registration successful! Please log in.',
+      email: 'E-Mail',
+      password: 'Password',
+      submit: 'register',
+      login: 'Already have an account? Then '
+    },
+    home: {
+      title: 'Hello, I am Gizem :)',
+      position1: 'Frontend-Developer',
+      position2: 'UI/UX Designer',
+      position3: 'Web- and App-Developer',
+      loginMsg1: 'Hi there',
+      loginMsg2: '!',
+      loginMsg3: 'You are logged in.',
+      logoutBtn: 'Logout',   
+      skillText: 'I have worked with',
+    },
+    about: {
+      title: 'About me',
+      textTitle: 'About me ^^',
+      text1: 'I am Gizem, a current student at the University of Applied Sciences for Business and Technology located in Berlin, Germany. I am currently an intern at ',
+      youcan: 'YouCan!.',
+      text2: 'I have been drawing, painting, and designing for as long as I can remember. At the same time, I have a strong interest in technology and creating or designing things.',
+      text3: ' As a Frontend Developer, I can combine both passions.',
+      text4: 'Everything I have programmed or designed so far can be found under my projects and on my ',
+      github: 'Github',
+      randomfactsTitle: 'Random Facts',
+      randomfactsText1: 'I love eating sweets (especially chocolate)',
+      randomfactsText2: 'I played the piano for three years (I’ve probably forgotten it by now)',
+      randomfactsText3: 'Learning languages is addictive',
+      randomfactsText4: 'I’m a book junkie and have already read 15 books in 2024 - yet!!',
+      hobbyTitle: 'Hobbies',
+      hobbyText1: 'I love reading',
+      hobbyText2: 'drawing and painting',
+      hobbyText3: 'Riding the bicycle gives me a feeling of freedom',
+      hobbyText4: 'Baking banana bread (or others)',
+      hobbyText5: 'Spending time with family and friends',
+      bioTitle: 'Biographie',
+      bioText1: 'I was born, raised and went to school in Berlin (Germany)',
+      bioText2: 'My parents are both from Türkiye',
+      bioText3: 'My surname comes from Kyrgyzstan and means: intelligent',
+      bioText4: 'I am studying Applied Computing for my Bachelors',
+      captions: {
+        vertical: [
+          "Antique Landscape",
+          "Dark Blue Theme",
+          "Castle by the Water",
+          "Giresun View",
+          "Beautiful Landscape",
+          "Marienburg Castle",
+          "Pink Castle",
+          "White Building",
+          "Seaside View",
+        ],
+        horizontal: [
+          "Britzer Garden, Berlin: just one out of many seas there",
+          "Duisburg, Nordrhein-Westfalen",
+          "Tempelhof Airport, Berlin: famous for its grilling",
+          "Mariendorf Landscape",
+          "Two Buildings",
+        ],
+      }
+    }
+  }
+  
