@@ -36,7 +36,7 @@ export default {
       skillText: 'Ich habe gearbeitet mit',
     },
     about: {
-      title: 'Über mich',
+      title: 'Ich bin Gizem',
       textTitle: 'Über mich ^^',
       text1: 'Ich bin Gizem, eine aktuelle Studentin an der Hochschule für Wirtschaft und Technik Berlin, Deutschland. Gerade bin ich Praktikantin an dem ',
       youcan: 'YouCan!',

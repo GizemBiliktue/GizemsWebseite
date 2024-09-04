@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import Background from '../components/Background.vue'
 import {onMounted} from 'vue'
 import LanguageSwitcher from '../components/LanguageSwitcher.vue'
+import { useHopAnimation } from '../utils/useHopAnimation.js';
 
 
   const authStore = useAuthStore()
@@ -17,6 +18,8 @@ import LanguageSwitcher from '../components/LanguageSwitcher.vue'
       }
   }
 
+  useHopAnimation();
+
   onMounted(async () => {
     await authStore.fetchUser()
   }) 
@@ -26,15 +29,15 @@ import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 <template>
   <Background :isReversed="false">
     <div class="home">
-      <h1>{{ $t('home.title') }}</h1>
-      <h4>{{ $t('home.position1') }}<span class="divider">|</span>{{ $t('home.position2') }}<span class="divider">|</span>{{ $t('home.position3') }}</h4>
-      <hr/>
-      <div class="login-logout" v-if="authStore.isAuthenticated">
+      <h1 class="hop-item">{{ $t('home.title') }}</h1>
+      <h4 class="hop-item">{{ $t('home.position1') }}<span class="divider">|</span>{{ $t('home.position2') }}<span class="divider">|</span>{{ $t('home.position3') }}</h4>
+      <hr class="hop-item">
+      <div class="login-logout hop-item" v-if="authStore.isAuthenticated">
         <p>{{ $t('home.loginMsg1') }} {{ authStore.user?.username }}{{ $t('home.loginMsg2') }}</p>
         <p>{{ $t('home.loginMsg3') }}</p>
         <button class="logout-btn" @click="logout">{{ $t('home.logoutBtn') }}</button>
       </div>
-      <div class="skills">
+      <div class="skills hop-item">
         <h2>{{ $t('home.skillText') }}</h2>
         <ul>
           <li>

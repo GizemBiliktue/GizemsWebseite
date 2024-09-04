@@ -1,23 +1,22 @@
 <template>
     <Background :isReversed="false">
         <div class="about">
-            <h1>{{$t('about.title')}}</h1>
-            <hr>
-            <div class="introduction">
-                <div class="text-section">
+            <h1 class="hop-item">{{$t('about.title')}}</h1>
+            <div class="introduction hop-item">
+                <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
+                <div class="text-section hop-item">
                     <h3>{{$t('about.textTitle')}}</h3>
                     <hr class="linie"/>
-                    <p>{{$t('about.text1')}} <router-link class="youcan-link" to='https://youcan-app.de'>{{$t('about.youcan')}}</router-link></p>
+                    <p>{{$t('about.text1')}} <a class="youcan-link" href='https://youcan-app.de' target="_blank">{{$t('about.youcan')}}</a></p>
                     <hr/>
                     <p>{{$t('about.text2')}}</p>
                     <p>{{$t('about.text3')}}</p>
                     <hr/>
-                    <p>{{$t('about.text4')}}<router-link class="github-link" to="https://github.com/GizemBiliktue">{{$t('about.github')}}</router-link></p>
+                    <p>{{$t('about.text4')}}<a class="github-link" href="https://github.com/GizemBiliktue" target="_blank">{{$t('about.github')}}</a></p>
                 </div>
-                <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
             </div>
 
-            <div class="little-Facts">
+            <div class="little-Facts hop-item">
                 <div class="facts">
                     <h3>{{$t('about.hobbyTitle')}}</h3>
                     <hr class="facts-linie">
@@ -27,7 +26,7 @@
                     <p><i class="fas fa-bread-slice"></i>{{$t('about.hobbyText4')}}</p>
                     <p><i class="fas fa-heart"></i>{{$t('about.hobbyText5')}}</p>
                 </div>
-                <div class="bio-facts">
+                <div class="bio-facts hop-item">
                     <h3>{{$t('about.bioTitle')}}</h3>
                     <hr class="facts-linie">
                     <p>{{$t('about.bioText1')}}</p>
@@ -35,7 +34,7 @@
                     <p>{{$t('about.bioText3')}}</p>
                     <p>{{$t('about.bioText4')}}</p>
                 </div>
-                <div class="facts">
+                <div class="facts hop-item">
                     <h3>{{$t('about.randomfactsTitle')}}</h3>
                     <hr class="facts-linie">
                     <p><i class="fas fa-candy-cane"></i>{{$t('about.randomfactsText1')}}</p>
@@ -45,8 +44,8 @@
                 </div>
             </div>
 
-            <div class="image-gallery-container">
-                <div class="vertical-gallery">
+            <div class="image-gallery-container hop-item">
+                <div class="vertical-gallery hop-item">
                 <div class="slideshow-container">
                     <div class="slides-vertical fade" v-for="(image, index) in verticalImages" :key="index">
                     <img :src="image.src" :alt="image.alt" class="vertical-image" />
@@ -57,7 +56,7 @@
                 </div>
                 </div>
 
-                <div class="horizontal-gallery">
+                <div class="horizontal-gallery hop-item">
                 <div class="slideshow-container">
                     <div class="slides-horizontal fade" v-for="(image, index) in horizontalImages" :key="index">
                     <img :src="image.src" :alt="image.alt" class="horizontal-image" />
@@ -76,6 +75,7 @@
 import Background from '../components/Background.vue';
 import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 import { ref, onMounted } from 'vue';
+import { useHopAnimation } from '../utils/useHopAnimation.js';
 
 const verticalImages = ref([
     { src: '/landscape/antik.png', alt: 'Antik'},
@@ -133,29 +133,11 @@ function changeSlide(n, gallery) {
     }
 }
 
-function handleIntersection(entries, observer) {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('hop-animation');
-                observer.unobserve(entry.target); 
-            }, index * 300);
-        }
-    });
-}
+useHopAnimation();
 
 onMounted(() => {
     showSlides(slideIndexVertical.value, 'vertical');
     showSlides(slideIndexHorizontal.value, 'horizontal');
-
-    const observer = new IntersectionObserver(handleIntersection, {
-        threshold: 0.8
-    });
-
-    const factBoxes = document.querySelectorAll('.facts, .bio-facts');
-    factBoxes.forEach(box => {
-        observer.observe(box);
-    });
 });
 </script>
 
@@ -233,7 +215,7 @@ onMounted(() => {
 }
 
 .facts {
-    background-color: rgba(180, 163, 141, 0.256);
+    background-color: rgba(180, 163, 141, 0.388);
     align-items: center;
     margin-left: 30px;
     margin-top: 50px;
@@ -306,7 +288,7 @@ onMounted(() => {
     justify-content: space-around;
     gap: 30px;
     margin-top: 50px;
-    background-color: rgba(255, 247, 232, 0.731);
+    background-color: rgb(255, 255, 255);
     padding: 11em;
 }
 
@@ -350,7 +332,7 @@ onMounted(() => {
 
 .caption {
     position: absolute;
-    bottom: 6.7px; 
+    bottom: 7px; 
     background-color: rgba(255, 255, 255, 0.731); 
     width: auto;
     max-width: 400px;
@@ -412,17 +394,6 @@ onMounted(() => {
     margin-top: 20px;
     margin-bottom: 30px;
 
-}
-
-@keyframes hop {
-    0% { transform: translateY(0); }
-    30% { transform: translateY(-30px); }
-    60% { transform: translateY(10px); }
-    100% { transform: translateY(0); }
-}
-
-.hop-animation {
-    animation: hop 1.6s ease-in-out;
 }
 
 

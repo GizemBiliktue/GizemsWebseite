@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <p>&copy; 2024 Ihr Unternehmen. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2024 Gizem Biliktü</p>
     </footer>
 </template>
 
@@ -12,7 +12,7 @@
  footer {
     bottom: 0;
     left: 0;
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     background-color: rgb(194, 164, 119);
     color: white;

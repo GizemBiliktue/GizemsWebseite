@@ -38,7 +38,7 @@ export default {
       skillText: 'I have worked with',
     },
     about: {
-      title: 'About me',
+      title: 'I am Gizem',
       textTitle: 'About me ^^',
       text1: 'I am Gizem, a current student at the University of Applied Sciences for Business and Technology located in Berlin, Germany. I am currently an intern at ',
       youcan: 'YouCan!.',
