@@ -80,6 +80,19 @@ export default {
           "Zwei Gebäude",
         ],
       }
-    }
+    },
+    "chatbot": {
+      header: 'Wie kann ich dir helfen?',
+      you: 'You:',
+      message: 'Write a message...',
+      send: 'Send',
+      hello: "Hi there! How can I help you today?",
+      hello2: "Sup! How can I help you?",
+      hello3: "Helloooooo",
+      how_are_you: "I'm well and feel lucky, thanks for asking!",
+      what_is_your_name: "I'm Gizem Biliktü. I try to assist you in this chat :)",
+      bye: "Goodbye! Have a great day!",
+      sorry: 'Sorry, I cannot respond that ^^'
+    },
   }
   
