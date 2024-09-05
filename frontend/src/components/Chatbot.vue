@@ -1,7 +1,7 @@
 <template>
     <div>
-      <button class="chat-toggle-btn" @click="toggleChat">
-        <img src="/gizem.png" alt="Chat Icon" class="chat-icon" />
+      <button class="chat-toggle-btn" :class="{'active': isChatVisible}" @click="toggleChat">
+        <img src="../assets/chatbot.svg" alt="Chat Icon" class="chat-icon" />
       </button>
   
       <div class="chatbot-container" v-if="isChatVisible">
@@ -9,14 +9,12 @@
           <img src="/gizem.png" alt="Chat Icon" class="chatbot-icon"/>
           <div class="chatbot-header-text">
             <strong>Gizem Bot</strong>
-            <p>How can I help you?</p>
+            <p>{{$t('chatbot.header')}}</p>
           </div>
         </div>
         <div class="chatbot-messages">
           <div v-for="(message, index) in messages" :key="index" :class="['message', message.sender === 'bot' ? 'bot-message' : 'user-message']">
             <div class="message-content">
-              <span v-if="message.sender === 'bot'">Gizem:</span>
-              <span v-if="message.sender === 'user'">You:</span>
               {{ message.text }}
             </div>
           </div>
@@ -25,11 +23,13 @@
           <input
             v-model="userInput"
             type="text"
-            placeholder="Write a message..."
+            :placeholder="$t('chatbot.message')"
             @keyup.enter="sendMessage"
             class="chatbot-input"
           />
-          <button @click="sendMessage" class="chatbot-send-btn">Send</button>
+            <button @click="sendMessage" class="chatbot-send-btn">
+                <img src="../assets/sendBtn.svg" alt="Send" class="send-icon"/>
+            </button>
         </div>
       </div>
     </div>
@@ -40,20 +40,24 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
-
-// Beispiel für vordefinierte Fragen und Antworten
-const predefinedResponses = {
-  "hello": "Hi there! How can I help you today?",
-  "how are you": "I'm well and feel lucky, thanks for asking!",
-  "what's your name": "I'm Gizem Biliktü. I try to assist you in this chat :)",
-  "bye": "Goodbye! Have a great day!"
-};
+import { useI18n } from 'vue-i18n';
 
 const isChatVisible = ref(false);
 const messages = ref([
   { sender: 'bot', text: 'Hello! How is it going?' }
 ]);
+
 const userInput = ref('');
+const { t } = useI18n();
+
+const predefinedQuestions = {
+    "hello":  ["chatbot.hello", "chatbot.hello2", "chatbot.hello3"],
+    "hallo": ["chatbot.hello", "chatbot.hello2", "chatbot.hello3"],  
+    "hi": ["chatbot.hello", "chatbot.hello2", "chatbot.hello3"],
+    "how are you": "chatbot.how_are_you",
+    "what's your name": "chatbot.what_is_your_name",
+    "bye": "chatbot.bye"
+};
 
 const toggleChat = () => {
   isChatVisible.value = !isChatVisible.value;
@@ -66,12 +70,12 @@ const sendMessage = async () => {
   messages.value.push({ sender: 'user', text: userInput.value });
   userInput.value = '';
 
-  // Überprüfen, ob die Benutzeranfrage in den vordefinierten Antworten enthalten ist
-  if (predefinedResponses[userMessage]) {
-    const botResponse = predefinedResponses[userMessage];
+  if (predefinedQuestions[userMessage]) {
+    const botResponses = predefinedQuestions[userMessage];
+    const botResponse = t(botResponses[Math.floor(Math.random() * botResponses.length)]);
     messages.value.push({ sender: 'bot', text: botResponse });
   } else {
-    messages.value.push({ sender: 'bot', text: "Sorry, I don't understand that question." });
+    messages.value.push({ sender: 'bot', text: t("chatbot.sorry") });
   }            
    
 };
@@ -93,18 +97,22 @@ const sendMessage = async () => {
   align-items: center;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.chat-toggle-btn.active {
+  background-color: #5d989d;
 }
 
 .chat-toggle-btn img {
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
 }
 
 .chatbot-container {
     margin-bottom: 15px;
     width: 375px;
     height: 620px;
-    border: 1px solid #ccc;
     border-radius: 40px;
     display: flex;
     flex-direction: column;
@@ -120,7 +128,7 @@ const sendMessage = async () => {
 .chatbot-header {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 22px;
   background-color: #5d989d;
   color: white;
   border-top-left-radius: 10px;
@@ -146,7 +154,7 @@ const sendMessage = async () => {
 }
 
 .chatbot-header-text strong {
-  font-size: 1.2em;
+  font-size: 1.0em;
 }
 
 .chatbot-header-text p {
@@ -158,7 +166,7 @@ const sendMessage = async () => {
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  background-color: #e7ddc9;
+  background-color: #ece7dc;
 }
 
 .message {
@@ -167,11 +175,17 @@ const sendMessage = async () => {
   font-size: 21px;
 }
 
+.user-message {
+    justify-content: flex-end;
+    display: flex;
+}
+
 .user-message .message-content {
     background-color: #85b1b5;
-    align-self: flex-end;
     padding: 15px;
     border-radius: 15px 15px 0px 15px;
+    align-self: flex-end;
+    max-width: 70%;
 }
 
 .bot-message .message-content {
@@ -179,6 +193,7 @@ const sendMessage = async () => {
     color: rgb(72, 137, 144);
     align-self: flex-start;
     padding: 15px;
+    max-width: 70%;
     border-radius: 15px 15px 15px 0px;
 }
 
@@ -214,11 +229,26 @@ const sendMessage = async () => {
     color: white;
     border: none;
     font-size: 18px;
-    border-radius: 25px;
-    padding: 10px 15px;
+    border-radius: 18px;
+    padding: 8px 12px;
     margin-left: 10px;
     cursor: pointer;
-    margin-bottom: 37px;
+    margin-bottom: 38px;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+.chatbot-send-btn:hover {
+    background-color: #8abbbf;
+
+}
+
+
+.send-icon {
+    width: 25px; 
+    height: 22px;
+    margin-left: 2px;
+    margin-top: 4px;
 }
 </style>
 

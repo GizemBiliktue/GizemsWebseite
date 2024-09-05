@@ -67,6 +67,7 @@
                 </div>
                 </div>
             </div>
+            <Chatbot/>
         </div>
     </Background>
 </template>
@@ -76,6 +77,8 @@ import Background from '../components/Background.vue';
 import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 import { ref, onMounted } from 'vue';
 import { useHopAnimation } from '../utils/useHopAnimation.js';
+import Chatbot from '../components/Chatbot.vue';
+
 
 const verticalImages = ref([
     { src: '/landscape/antik.png', alt: 'Antik'},
@@ -216,41 +219,9 @@ onMounted(() => {
 
 .facts {
     background-color: rgba(180, 163, 141, 0.388);
-    align-items: center;
-    margin-left: 30px;
-    margin-top: 50px;
-    border-radius: 30px;
-    padding: 10px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    max-width: 700px;
-
 }
 
-.facts h3{
-    color: white;
-    font-size: 3em;
-}
-
-.facts p{
-    color: white;
-    font-size: 1.5em;
-    text-align: left; 
-    max-width: 550px; 
-    margin: 30px; 
-    margin-left: 90px;
-    align-items: center;
-}
-
-.facts p i {
-    margin-right: 10px; 
-    color: white; 
-    font-size: 1.2em; 
-}
-
-.bio-facts {
-    background-color: rgba(255, 255, 255, 0.174);
+.facts, .bio-facts {
     align-items: center;
     margin-left: 30px;
     margin-top: 50px;
@@ -260,14 +231,18 @@ onMounted(() => {
     padding-bottom: 30px;
     margin-bottom: 30px;
     max-width: 800px;
-
 }
-.bio-facts h3{
+
+.bio-facts {
+    background-color: rgba(255, 255, 255, 0.174);
+}
+
+.bio-facts h3, .facts h3{
     color: white;
     font-size: 3em;
 }
 
-.bio-facts p{
+.facts p, .bio-facts p{
     color: white;
     font-size: 1.5em;
     text-align: left; 
@@ -277,10 +252,21 @@ onMounted(() => {
     align-items: center;
 }
 
-.bio-facts p i {
+.facts p i, .bio-facts p i {
     margin-right: 10px; 
     color: white; 
     font-size: 1.2em; 
+}
+
+.little-Facts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    flex-wrap: wrap; 
+    margin-top: 20px;
+    margin-bottom: 30px;
+
 }
 
 .image-gallery-container {
@@ -382,17 +368,6 @@ onMounted(() => {
     transform: translateY(-40%);
     scale: 120%;
     color: rgb(255, 255, 255);
-
-}
-
-.little-Facts {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; 
-    flex-wrap: wrap; 
-    margin-top: 20px;
-    margin-bottom: 30px;
 
 }
 

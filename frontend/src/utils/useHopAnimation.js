@@ -13,7 +13,7 @@ export function useHopAnimation() {
         }
       });
     }, {
-      threshold: 0.8, 
+      threshold: 0.3, 
     });
 
     const hopItems = document.querySelectorAll('.hop-item');
