@@ -70,14 +70,15 @@ const sendMessage = async () => {
   messages.value.push({ sender: 'user', text: userInput.value });
   userInput.value = '';
 
-  if (predefinedQuestions[userMessage]) {
-    const botResponses = predefinedQuestions[userMessage];
-    const botResponse = t(botResponses[Math.floor(Math.random() * botResponses.length)]);
+  // Send the user message to the Flask backend
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/chatbot', { message: userMessage });
+    const botResponse = response.data.response;
     messages.value.push({ sender: 'bot', text: botResponse });
-  } else {
-    messages.value.push({ sender: 'bot', text: t("chatbot.sorry") });
-  }            
-   
+  } catch (error) {
+    console.error('Error sending message:', error);
+    messages.value.push({ sender: 'bot', text: "Sorry, I didn't understand that." });
+  }
 };
 </script>
 

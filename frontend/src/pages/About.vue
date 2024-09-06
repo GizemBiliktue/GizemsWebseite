@@ -200,7 +200,7 @@ onMounted(() => {
     flex-basis: 25%;
     width: 10em;
     float: right;
-    margin-right: 11em;
+    margin-left: 5em;
     object-fit: cover;
 }
 
