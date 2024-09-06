@@ -1,6 +1,9 @@
+import os
+import random
+import re
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect, csrf_exempt
 import json
 
 from django.views.decorators.http import require_http_methods
@@ -68,3 +71,28 @@ def register(request):
 
 def post_list(request):
     return render(request, 'sim/post_list.html', {})
+
+
+INTENTS_PATH = os.path.join(os.path.dirname(__file__), 'intents.json')
+
+@csrf_exempt  
+def chatbot_response(request):
+    if request.method == 'POST':
+        with open(INTENTS_PATH, 'r') as file:
+            intents = json.load(file)
+
+        data = json.loads(request.body)
+        user_message = data.get('message', '').lower()
+
+        def match_intent(message):
+            for intent in intents['intents']:
+                for pattern in intent['patterns']:
+                    if re.search(r'\b' + re.escape(pattern.lower()) + r'\b', message):
+                        return random.choice(intent['responses'])
+            return "Sorry, I didn't understand that."
+
+        bot_response = match_intent(user_message)
+
+        return JsonResponse({"response": bot_response})
+
+    return JsonResponse({"error": "Invalid request method."}, status=400)
