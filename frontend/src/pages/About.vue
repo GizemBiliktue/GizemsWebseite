@@ -2,6 +2,7 @@
     <Background :isReversed="false">
         <div class="about">
             <h1 class="hop-item">{{$t('about.title')}}</h1>
+            <hr class="hop-item">
             <div class="introduction hop-item">
                 <img src="/gizem.png" alt="aboutbild" class="about-bild"/>
                 <div class="text-section hop-item">
