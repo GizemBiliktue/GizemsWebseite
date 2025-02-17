@@ -83,16 +83,16 @@ export default {
     },
     "chatbot": {
       header: 'Wie kann ich dir helfen?',
-      you: 'You:',
-      message: 'Write a message...',
-      send: 'Send',
-      hello: "Hi there! How can I help you today?",
-      hello2: "Sup! How can I help you?",
-      hello3: "Helloooooo",
-      how_are_you: "I'm well and feel lucky, thanks for asking!",
-      what_is_your_name: "I'm Gizem Biliktü. I try to assist you in this chat :)",
-      bye: "Goodbye! Have a great day!",
-      sorry: 'Sorry, I cannot respond that ^^'
+      welcome: 'Hallo! Wie gehts?',
+      message: 'Schreibe eine Nachricht...',
+      send: 'Senden',
+      hello: "Hallihallo! Wie kann ich dir heute helfen?",
+      hello2: "Was geht! Wie kann ich dir helfen?",
+      hello3: "Halloooooo",
+      how_are_you: "Mir geht es gut und bin dankbar, danke fürs fragen!",
+      what_is_your_name: "Ich bin Gizem Biliktü. Ich versuche dir zu helfen hier in diesem Chat :)",
+      bye: "Tschüss! Hab einen schönen Tag!",
+      sorry: 'Tut mir leid, Ich kann darauf nicht antworten ^^'
     },
   }
   

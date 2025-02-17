@@ -86,7 +86,7 @@ export default {
 
     "chatbot": {
       header: 'How can I help you?',
-      you: 'You:',
+      welcome: 'Hello! How is it going?',
       message: 'Write a message...',
       send: 'Send',
       hello: "Hi there! How can I help you today?",

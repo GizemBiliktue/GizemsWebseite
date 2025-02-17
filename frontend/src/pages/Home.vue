@@ -1,5 +1,4 @@
 <script setup>
-import { useAuthStore } from '../store/auth.js'
 import { useRouter } from 'vue-router'
 import Background from '../components/Background.vue'
 import {onMounted} from 'vue'
@@ -8,22 +7,10 @@ import { useHopAnimation } from '../utils/useHopAnimation.js';
 import Chatbot from '../components/Chatbot.vue';
 
 
-  const authStore = useAuthStore()
   const router = useRouter()
 
-  const logout = async () => {
-      try {
-        await authStore.logout(router)
-      } catch (error) {
-        console.error(error)
-      }
-  }
 
   useHopAnimation();
-
-  onMounted(async () => {
-    await authStore.fetchUser()
-  }) 
 
 </script>
 
@@ -33,11 +20,6 @@ import Chatbot from '../components/Chatbot.vue';
       <h1 class="hop-item">{{ $t('home.title') }}</h1>
       <h4 class="hop-item">{{ $t('home.position1') }}<span class="divider">|</span>{{ $t('home.position2') }}<span class="divider">|</span>{{ $t('home.position3') }}</h4>
       <hr class="hop-item">
-      <div class="login-logout hop-item" v-if="authStore.isAuthenticated">
-        <p>{{ $t('home.loginMsg1') }} {{ authStore.user?.username }}{{ $t('home.loginMsg2') }}</p>
-        <p>{{ $t('home.loginMsg3') }}</p>
-        <button class="logout-btn" @click="logout">{{ $t('home.logoutBtn') }}</button>
-      </div>
       <div class="skills hop-item">
         <h2>{{ $t('home.skillText') }}</h2>
         <ul>
@@ -63,6 +45,12 @@ import Chatbot from '../components/Chatbot.vue';
           </li>
           <li>
             <img src="../assets/ikons/figma.svg" alt="figma" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/ikons/swift.svg" alt="swift" class="programming-icon" />
+          </li>
+          <li>
+            <img src="../assets/ikons/xcode.svg" alt="xcode" class="programming-icon" />
           </li>
         </ul>
       </div>

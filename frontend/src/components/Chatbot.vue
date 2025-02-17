@@ -42,13 +42,13 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { useI18n } from 'vue-i18n';
 
-const isChatVisible = ref(false);
-const messages = ref([
-  { sender: 'bot', text: 'Hello! How is it going?' }
-]);
-
 const userInput = ref('');
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const isChatVisible = ref(false);
+
+const messages = ref([
+  { sender: 'bot', text: t("chatbot.welcome")}
+]);
 
 const predefinedQuestions = {
     "hello":  ["chatbot.hello", "chatbot.hello2", "chatbot.hello3"],
