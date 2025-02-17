@@ -1,17 +1,13 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Home from './pages/Home.vue'
-import Login from './pages/Login.vue'
-import Register from "./pages/Register.vue"
 import AppLayout from './components/AppLayout.vue'
 import About from './pages/About.vue'
 import Projects from './pages/projects.vue'
-import { useAuthStore } from './store/auth'
-import AuthLayout from './components/AuthLayout.vue'
 
 const routes = [
     {
         path: '/',
-        redirect: '/login',
+        redirect: 'home',
     },
     {
         path: '/',
@@ -36,21 +32,6 @@ const routes = [
             meta: { requiresAuth: true }
         },
         ]
-    }, {
-        path: '/',
-        component: AuthLayout,
-        children: [
-            {
-                path: '/login',
-                name: 'login',
-                component: Login
-            },
-            {
-                path: '/register',
-                name: 'register',
-                component: Register
-            },
-        ]
     }
 ]
 
@@ -59,20 +40,5 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach(async(to, from, next) => {
-    const authStore = useAuthStore();
-
-    if(!authStore.isAuthenticated) {
-        await authStore.fetchUser();
-    }
-
-    if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-        next({ name: 'login' });
-    } else if ((to.name === 'login' || to.name === 'register') && authStore.isAuthenticated) {
-        next({ name: 'home' });
-    } else {
-        next();
-    }
-})
 
 export default router
